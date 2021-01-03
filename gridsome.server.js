@@ -6,12 +6,14 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = function (api) {
+  // eslint-disable-next-line no-unused-vars
   api.loadSource(({ addCollection, addMetadata }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-    addMetadata('settings', require('./gridsome.config').settings);
-  });
+    addMetadata('settings', require('./gridsome.config').settings)
+  })
 
+  // eslint-disable-next-line no-unused-vars
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  });
+  })
 }

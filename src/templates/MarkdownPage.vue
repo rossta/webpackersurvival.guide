@@ -1,16 +1,15 @@
 <template>
   <Layout>
-      <div class="flex flex-wrap items-start justify-start">
+    <div class="flex flex-wrap items-start justify-start">
+      <div class="order-1 w-full md:w-2/3">
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="content" v-html="$page.markdownPage.content" />
 
-        <div class="order-1 w-full md:w-2/3">
-          <div class="content" v-html="$page.markdownPage.content" />
-
-          <div class="mt-8 pt-8 lg:mt-12 lg:pt-12 border-t border-ui-border">
-            <NextPrevLinks />
-          </div>
+        <div class="mt-8 pt-8 lg:mt-12 lg:pt-12 border-t border-ui-border">
+          <NextPrevLinks />
         </div>
-
       </div>
+    </div>
   </Layout>
 </template>
 
@@ -44,23 +43,24 @@ query ($id: ID!) {
 </page-query>
 
 <script>
-import NextPrevLinks from '@/components/NextPrevLinks.vue';
+import NextPrevLinks from '@/components/NextPrevLinks.vue'
 
 export default {
   components: {
-    NextPrevLinks
+    NextPrevLinks,
   },
 
   metaInfo() {
-    const title = this.$page.markdownPage.title;
-    const description = this.$page.markdownPage.description || this.$page.markdownPage.excerpt;
+    const title = this.$page.markdownPage.title
+    const description =
+      this.$page.markdownPage.description || this.$page.markdownPage.excerpt
 
     return {
       title: title,
       meta: [
         {
           name: 'description',
-          content: description
+          content: description,
         },
         {
           key: 'og:title',
@@ -82,9 +82,9 @@ export default {
           name: 'twitter:description',
           content: description,
         },
-      ]
+      ],
     }
-  }
+  },
 }
 </script>
 
