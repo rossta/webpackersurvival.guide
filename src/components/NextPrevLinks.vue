@@ -35,23 +35,110 @@ export default {
     page() {
       return this.$page.markdownPage
     },
+
     pages() {
       return this.$page.allMarkdownPage.edges.map((edge) => edge.node)
     },
-    next() {
-      if (this.pages && !this.page.next) {
-        return false
-      }
 
-      return this.pages.find((page) => page.path === this.page.next)
+    chapterPages() {
+      return this.chapters
+        .reduce((chapterMemo, chapter, chapterIndex) => {
+          return [
+            ...chapterMemo,
+            chapter.sections.reduce((sectionMemo, section, sectionIndex) => {
+              return [
+                ...sectionMemo,
+                section.items.map((path) => ({
+                  ...this.pages.find((page) => page.path === path),
+                  chapter: chapterIndex,
+                  section: sectionIndex,
+                })),
+              ]
+            }, []),
+          ]
+        }, [])
+        .flat()
+        .flat()
     },
-    prev() {
-      if (this.pages && !this.page.prev) {
-        return false
+
+    chapters() {
+      return this.$static.metadata.settings.sidebar
+    },
+
+    sections() {
+      return this.chapters.map((chapter) => chapter.sections).flat()
+    },
+
+    currentPageIndex() {
+      return this.chapterPages.findIndex((page) => page.path === this.page.path)
+    },
+
+    currentChapterPage() {
+      return this.chapterPages[this.currentPageIndex]
+    },
+
+    next() {
+      const page = this.chapterPages[this.currentPageIndex + 1]
+      if (!page) return false
+
+      if (page.chapter !== this.currentChapterPage.chapter) {
+        return this.chapterPage(page)
       }
 
-      return this.pages.find((page) => page.path === this.page.prev)
+      if (page.section !== this.currentChapterPage.section) {
+        return this.sectionPage(page)
+      }
+
+      return page
+    },
+
+    prev() {
+      let page = this.chapterPages[this.currentPageIndex - 1]
+      if (!page) return false
+
+      if (page.chapter !== this.currentChapterPage.chapter) {
+        // Send to first page of chapter
+        page = this.chapterPages.find((p) => p.chapter === page.chapter)
+        return this.chapterPage(page)
+      }
+
+      if (page.section !== this.currentChapterPage.section) {
+        return this.sectionPage(page)
+      }
+
+      return page
+    },
+  },
+
+  methods: {
+    sectionPage(page) {
+      return {
+        ...page,
+        title: `${this.sections[page.section].title}: ${page.title}`,
+      }
+    },
+    chapterPage(page) {
+      return {
+        ...page,
+        title: this.chapters[page.chapter].title,
+      }
     },
   },
 }
 </script>
+
+<static-query>
+query NextPrevLinks {
+  metadata {
+    settings {
+      sidebar {
+        title
+        sections {
+          title
+          items
+        }
+      }
+    }
+  }
+}
+</static-query>

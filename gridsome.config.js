@@ -16,11 +16,15 @@ module.exports = {
     twitter: process.env.URL_TWITTER || false,
     github: process.env.URL_GITHUB || false,
     nav: {
-      links: [{ path: '/docs/', title: 'Docs' }],
+      links: [
+        { path: '/docs/', title: 'Docs' },
+        { path: '/guides/', title: 'Guides' },
+      ],
     },
     sidebar: [
       {
         name: 'docs',
+        title: 'Docs',
         sections: [
           {
             title: 'Getting Started',
@@ -34,6 +38,16 @@ module.exports = {
           {
             title: 'Configuration',
             items: ['/docs/settings/', '/docs/sidebar/'],
+          },
+        ],
+      },
+      {
+        name: 'guides',
+        title: 'Guides',
+        sections: [
+          {
+            title: 'Guides',
+            items: ['/guides/'],
           },
         ],
       },
