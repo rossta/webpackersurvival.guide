@@ -17,37 +17,79 @@ module.exports = {
     github: process.env.URL_GITHUB || false,
     nav: {
       links: [
-        { path: '/docs/', title: 'Docs' },
         { path: '/guides/', title: 'Guides' },
+        { path: '/recipes/', title: 'Recipes' },
+        { path: '/tutorials/', title: 'Tutorials' },
       ],
     },
     sidebar: [
-      {
-        name: 'docs',
-        title: 'Docs',
-        sections: [
-          {
-            title: 'Getting Started',
-            items: [
-              '/docs/',
-              '/docs/installation/',
-              '/docs/writing-content/',
-              '/docs/deploying/',
-            ],
-          },
-          {
-            title: 'Configuration',
-            items: ['/docs/settings/', '/docs/sidebar/'],
-          },
-        ],
-      },
+      // {
+      //   name: 'docs',
+      //   title: 'Docs',
+      //   sections: [
+      //     {
+      //       title: 'Getting Started',
+      //       items: [
+      //         '/docs/',
+      //         '/docs/installation/',
+      //         '/docs/writing-content/',
+      //         '/docs/deploying/',
+      //       ],
+      //     },
+      //     {
+      //       title: 'Configuration',
+      //       items: ['/docs/settings/', '/docs/sidebar/'],
+      //     },
+      //   ],
+      // },
       {
         name: 'guides',
         title: 'Guides',
         sections: [
           {
+            title: 'Start here',
+            items: [
+              '/guides/',
+              '/guides/background/',
+              '/guides/sprockets/',
+              '/guides/outline/',
+            ],
+          },
+          {
             title: 'Guides',
-            items: ['/guides/'],
+            items: [
+              '/guides/install/',
+              '/guides/organize/',
+              '/guides/write/',
+              '/guides/import/',
+              '/guides/integrate/',
+              '/guides/compile/',
+              '/guides/render/',
+              '/guides/image/',
+              '/guides/style/',
+              '/guides/configure/',
+              '/guides/optimize/',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'recipes',
+        title: 'Recipes',
+        sections: [
+          {
+            title: 'Recipes',
+            items: ['/recipes/'],
+          },
+        ],
+      },
+      {
+        name: 'tutorials',
+        title: 'Tutorials',
+        sections: [
+          {
+            title: 'Tutorials',
+            items: ['/tutorials/'],
           },
         ],
       },

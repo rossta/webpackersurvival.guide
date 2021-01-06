@@ -40,6 +40,9 @@ export default {
       return this.$page.allMarkdownPage.edges.map((edge) => edge.node)
     },
 
+    // flatten chapter and section indices onto page data, i.e.,
+    // convert [{ chapter [{ sections [{ pages }]}]}]
+    // to [{ page, sectionIndex, chapterIndex }]
     chapterPages() {
       return this.chapters
         .reduce((chapterMemo, chapter, chapterIndex) => {
@@ -78,50 +81,35 @@ export default {
     },
 
     next() {
-      const page = this.chapterPages[this.currentPageIndex + 1]
-      if (!page) return false
-
-      if (page.chapter !== this.currentChapterPage.chapter) {
-        return this.chapterPage(page)
-      }
-
-      if (page.section !== this.currentChapterPage.section) {
-        return this.sectionPage(page)
-      }
-
-      return page
+      return this.pageLink(this.chapterPages[this.currentPageIndex + 1])
     },
 
     prev() {
-      let page = this.chapterPages[this.currentPageIndex - 1]
-      if (!page) return false
-
-      if (page.chapter !== this.currentChapterPage.chapter) {
-        // Send to first page of chapter
-        page = this.chapterPages.find((p) => p.chapter === page.chapter)
-        return this.chapterPage(page)
-      }
-
-      if (page.section !== this.currentChapterPage.section) {
-        return this.sectionPage(page)
-      }
-
-      return page
+      return this.pageLink(this.chapterPages[this.currentPageIndex - 1])
     },
   },
 
   methods: {
-    sectionPage(page) {
-      return {
-        ...page,
-        title: `${this.sections[page.section].title}: ${page.title}`,
+    pageLink(page) {
+      if (!page) return false
+
+      if (page.chapter !== this.currentChapterPage.chapter) {
+        // Send to first page of chapter
+        // page = this.chapterPages.find((p) => p.chapter === page.chapter)
+        return {
+          ...page,
+          title: this.chapters[page.chapter].title,
+        }
       }
-    },
-    chapterPage(page) {
-      return {
-        ...page,
-        title: this.chapters[page.chapter].title,
+
+      if (page.section !== this.currentChapterPage.section) {
+        return {
+          ...page,
+          title: `${this.sections[page.section].title}: ${page.title}`,
+        }
       }
+
+      return page
     },
   },
 }

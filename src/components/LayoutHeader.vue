@@ -5,22 +5,25 @@
         <div
           class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row"
         >
-          <g-link to="/" class="flex items-center text-ui-primary" title="Home">
+          <g-link
+            to="/"
+            class="flex items-center text-ui-primary mr-4"
+            title="Home"
+          >
             <Logo :width="40" class="text-ui-primary" />
             <span
-              class="hidden ml-2 text-xl font-black tracking-tighter uppercase sm:block"
+              class="ml-2 text-xl font-black tracking-tighter uppercase sm:block"
             >
               {{ meta.siteName }}
             </span>
           </g-link>
 
           <div
-            v-if="settings.nav.links.length > 0"
-            class="hidden ml-2 mr-5 sm:block sm:ml-8"
+            v-for="link in settings.nav.links"
+            :key="link.path"
+            class="flex flex-col items-center px-2 sm:px-4 sm:flex-row mx-2 mr-2"
           >
             <g-link
-              v-for="link in settings.nav.links"
-              :key="link.path"
               :to="link.path"
               class="block p-1 font-medium nav-link text-ui-typo hover:text-ui-primary"
             >
@@ -29,7 +32,7 @@
           </div>
         </div>
 
-        <div class="w-full px-2 sm:px-4 max-w-screen-xs">
+        <div class="px-2 sm:px-4 max-w-screen-xs">
           <ClientOnly>
             <Search />
           </ClientOnly>

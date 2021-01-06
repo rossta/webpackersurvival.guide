@@ -56,7 +56,7 @@ export default {
       return this.$page.markdownPage
     },
     headings() {
-      return this.page.headings.filter((h) => h.depth > 1)
+      return this.page.headings.filter((h) => h.depth > 0)
     },
   },
 
