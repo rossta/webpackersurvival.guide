@@ -1,7 +1,5 @@
 ---
 description: ''
-sidebar: 'docs'
-next: '/docs/installation/'
 ---
 
 # Introduction

@@ -1,8 +1,5 @@
 ---
 description: ''
-sidebar: 'docs'
-prev: '/docs/installation/'
-next: '/docs/settings/'
 ---
 
 # Writing Content
@@ -26,11 +23,9 @@ plugins: [
       remark: {
         externalLinksTarget: '_blank',
         externalLinksRel: ['noopener', 'noreferrer'],
-        plugins: [
-          '@gridsome/remark-prismjs'
-        ]
-      }
-    }
+        plugins: ['@gridsome/remark-prismjs'],
+      },
+    },
   },
   // ...
 ]

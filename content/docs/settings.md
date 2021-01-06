@@ -18,7 +18,7 @@ Check out the [sidebar](/docs/sidebar/) section for more information.
 
 If you scroll to the bottom of the page, you will notice some buttons which link to the previous pages in these docs. These are also not automatically generated but configured in the frontmatter of your markdown file like this:
 
-```md
+```md{1}
 prev: '/docs/previous-link/'
 next: '/docs/next-link/'
 ```
@@ -33,11 +33,9 @@ The standard navigation on the top left is defined in the `gridsome.config.js` f
 module.exports = {
   settings: {
     nav: {
-      links: [
-        { path: '/docs/', title: 'Docs' }
-      ]
+      links: [{ path: '/docs/', title: 'Docs' }],
     },
-  }
+  },
 }
 ```
 
