@@ -1,3 +1,3 @@
-# Recipes
+# Guide
 
 Coming soon!

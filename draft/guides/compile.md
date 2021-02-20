@@ -23,3 +23,11 @@
 - Understanding output
 - Gotchas:
   - You can accidentally duplicate code if you don't know what you're doing
+
+Running `./bin/webpack` is similar to typing out one the following commands to run `webpack` directly, depending on your current `RAILS_ENV`:
+
+```sh
+RAILS_ENV=development yarn webpack --config ./config/webpack/development.js
+RAILS_ENV=test yarn webpack --config ./config/webpack/test.js
+RAILS_ENV=production yarn webpack --config ./config/webpack/production.js
+```

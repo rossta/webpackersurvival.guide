@@ -38,13 +38,13 @@ Here's what DHH said when he introduced webpack as the recommended JavaScript co
 
 > We will continue to use the asset pipeline for JavaScript sprinkles, CSS, images, and other static stuff. The two approaches coexist great.
 
-## Should you use both?
+## Are you required to use both Webpacker and Sprockets?
 
-It depends.
+No.
+
+The two processes for bundling assets are completely separate and they do not share dependencies. Different helpers, different implementations, different directories, different, different, different. They are built in such a way that they can cohabitate a Rails application.
 
 If you're a member of the "Basecamp camp", all your webpack JavaScript source files would live in `app/javascript` and all your Sprockets CSS and images would remain in `app/assets`. Running `rails assets:precompile` will first build all the Sprockets assets into the `public/assets` directory, then will build all the webpack assets into the `public/packs` directory.
-
-This does not mean you need to run both Sprockets and Webpacker to serve assets for the browser. The two processes for bundling assets are completely separate and they do not share dependencies. Different helpers, different implementations, different directories, different, different, different. They are built in such a way that they can cohabitate a Rails application.
 
 ## Why choose one or the other?
 
