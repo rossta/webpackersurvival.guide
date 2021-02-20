@@ -29,9 +29,6 @@ query ($id: ID!) {
     path
     timeToRead
     content
-    sidebar
-    next
-    prev
     headings {
       depth
       value
@@ -97,6 +94,4 @@ export default {
 }
 </script>
 
-<style>
-@import 'prism-themes/themes/prism-material-oceanic.css';
-</style>
+<style></style>

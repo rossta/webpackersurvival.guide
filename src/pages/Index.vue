@@ -5,23 +5,21 @@
         <div class="flex flex-col items-center mb-2 text-ui-primary">
           <Logo :width="80" />
           <h2 class="text-6xl font-black tracking-tighter border-none">
-            Frontends on Rails
+            Webpacker Survival Guide
           </h2>
         </div>
         <h1 class="text-4xl text-center lg:text-5xl">
-          Helping Rails and JavaScript co-exist.
+          Helping Rails and JavaScript play nice together
         </h1>
         <p class="text-xl font-medium text-center">
-          Capturing best practices for modern tooling on .
-          <br />
-          <strong class="text-ui-primary">Got a minute?</strong>
+          More bundling. Less bungling.
         </p>
 
-        <div class="py-4">
+        <!-- <div class="py-4">
           <code class="block px-4 py-1 select-all bg-ui-border text-ui-typo"
             >gridsome create your-project https://github.com/mrcrmn/docc</code
           >
-        </div>
+        </div> -->
 
         <div class="flex justify-center mt-8">
           <g-link
@@ -33,12 +31,7 @@
           </g-link>
         </div>
 
-        <p class="mt-8 text-center">
-          Open Source. MIT License.
-          <span class="border-b border-dashed border-ui-primary text-ui-primary"
-            >Make it your own</span
-          >.
-        </p>
+        <p class="mt-8 text-center">Open Source. MIT License.</p>
       </div>
 
       <div
@@ -49,47 +42,48 @@
         <div
           class="flex flex-col items-center w-full pl-8 pr-4 mb-8 text-center md:w-1/3"
         >
-          <ZapIcon size="3x" class="mb-6 text-ui-primary" />
+          <AnchorIcon size="3x" class="mb-6 text-ui-primary" />
           <h3 class="font-bold tracking-wide uppercase text-ui-primary">
-            Incredibly Fast
+            Orientation
           </h3>
           <p class="text-lg text-left">
-            Powered by Gridsome. Built on Vue. Outputs static files. It wont't
-            get any faster than this.
-            <span
-              class="border-b border-dashed border-ui-primary text-ui-primary"
-              >No seriously</span
-            >.
+            Understand Webpacker does (and doesn't) do. Crafted especially for
+            developers familiar with the Rails asset pipeline.
           </p>
         </div>
 
         <div
           class="flex flex-col items-center w-full px-4 mb-8 text-center md:w-1/3"
         >
-          <SearchIcon size="3x" class="mb-6 text-ui-primary" />
+          <MonitorIcon size="3x" class="mb-6 text-ui-primary" />
           <h3 class="font-bold tracking-wide uppercase text-ui-primary">
-            Instant Search
+            Guided Tour
           </h3>
           <p class="text-lg text-left">
-            All headlines are indexed. Instant search powered by Fuse.js. Find
-            what you are looking for in the
             <span
               class="border-b border-dashed border-ui-primary text-ui-primary"
-              >blink of an eye</span
-            >.
+              >Coming soon!</span
+            >
+            Follow our step-by-step to get up-and-running with Webpacker taking
+            you from zero-to-deploy covering topics from development to
+            optimization.
           </p>
         </div>
 
         <div
           class="flex flex-col items-center w-full pl-4 px-8 mb-8 text-center md:w-1/3"
         >
-          <MoonIcon size="3x" class="mb-6 text-ui-primary" />
+          <BookOpenIcon size="3x" class="mb-6 text-ui-primary" />
           <h3 class="font-bold tracking-wide uppercase text-ui-primary">
-            Lights out
+            Recipes
           </h3>
           <p class="text-lg text-left">
-            Working late at night again? Enable dark mode with the click of a
-            button.
+            <span
+              class="border-b border-dashed border-ui-primary text-ui-primary"
+              >Coming soon!</span
+            >
+            Tackle common Webpacker tasks including how-in-the-world to add
+            jQuery and setup steps for React and Vue.
           </p>
         </div>
       </div>
@@ -100,25 +94,25 @@
 <script>
 import Logo from '@/components/Logo'
 import {
+  AnchorIcon,
   ArrowRightCircleIcon,
-  ZapIcon,
-  MoonIcon,
-  SearchIcon,
+  MonitorIcon,
+  BookOpenIcon,
 } from 'vue-feather-icons'
 
 export default {
   components: {
     Logo,
+    AnchorIcon,
     ArrowRightCircleIcon,
-    ZapIcon,
-    MoonIcon,
-    SearchIcon,
+    BookOpenIcon,
+    MonitorIcon,
   },
 
   metaInfo() {
-    const title = 'Great Documentation starts here'
+    const title = 'For Rails developers who don&rsquo;t love JavaScript'
     const description =
-      'DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!'
+      'The best resource to learn and master asset bundling for Rails'
 
     return {
       title: title,

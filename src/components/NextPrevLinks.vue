@@ -92,6 +92,7 @@ export default {
   methods: {
     pageLink(page) {
       if (!page) return false
+      if (!this.currentChapterPage) return false
 
       if (page.chapter !== this.currentChapterPage.chapter) {
         // Send to first page of chapter

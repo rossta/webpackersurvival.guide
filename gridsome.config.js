@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Docc',
+  siteName: 'WSG',
   icon: {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png',
@@ -17,59 +17,29 @@ module.exports = {
     github: process.env.URL_GITHUB || false,
     nav: {
       links: [
-        { path: '/guides/', title: 'Guides' },
+        { path: '/orientation/', title: 'Orientation' },
+        { path: '/tour/', title: 'Tour' },
         { path: '/recipes/', title: 'Recipes' },
-        { path: '/tutorials/', title: 'Tutorials' },
       ],
     },
     sidebar: [
-      // {
-      //   name: 'docs',
-      //   title: 'Docs',
-      //   sections: [
-      //     {
-      //       title: 'Getting Started',
-      //       items: [
-      //         '/docs/',
-      //         '/docs/installation/',
-      //         '/docs/writing-content/',
-      //         '/docs/deploying/',
-      //       ],
-      //     },
-      //     {
-      //       title: 'Configuration',
-      //       items: ['/docs/settings/', '/docs/sidebar/'],
-      //     },
-      //   ],
-      // },
       {
-        name: 'guides',
-        title: 'Guides',
+        name: 'orientation',
+        title: 'Orientation',
         sections: [
           {
-            title: 'Start here',
-            items: [
-              '/guides/',
-              '/guides/background/',
-              '/guides/sprockets/',
-              '/guides/outline/',
-            ],
+            title: 'Orientation',
+            items: ['/orientation/', '/orientation/wtf/'],
           },
+        ],
+      },
+      {
+        name: 'tour',
+        title: 'Tour',
+        sections: [
           {
-            title: 'Guides',
-            items: [
-              '/guides/install/',
-              '/guides/organize/',
-              '/guides/write/',
-              '/guides/import/',
-              '/guides/integrate/',
-              '/guides/compile/',
-              '/guides/render/',
-              '/guides/image/',
-              '/guides/style/',
-              '/guides/configure/',
-              '/guides/optimize/',
-            ],
+            title: 'Tour',
+            items: ['/tour/'],
           },
         ],
       },
@@ -80,16 +50,6 @@ module.exports = {
           {
             title: 'Recipes',
             items: ['/recipes/'],
-          },
-        ],
-      },
-      {
-        name: 'tutorials',
-        title: 'Tutorials',
-        sections: [
-          {
-            title: 'Tutorials',
-            items: ['/tutorials/'],
           },
         ],
       },
@@ -115,7 +75,7 @@ module.exports = {
       options: {
         tailwindConfig: './tailwind.config.js',
         purgeConfig: {
-          // Prevent purging of prism classes.
+          // prevent purging of prism classes.
           whitelistPatternsChildren: [/token$/],
         },
       },
@@ -134,3 +94,68 @@ module.exports = {
     },
   ],
 }
+
+// const examplesidebar = {
+//   name: 'docs',
+//   title: 'docs',
+//   sections: [
+//     {
+//       title: 'getting started',
+//       items: [
+//         '/docs/',
+//         '/docs/installation/',
+//         '/docs/writing-content/',
+//         '/docs/deploying/',
+//       ],
+//     },
+//     {
+//       title: 'configuration',
+//       items: ['/docs/settings/', '/docs/sidebar/'],
+//     },
+//   ],
+// }
+
+// const legacysidebar = [
+//   {
+//     name: 'guides',
+//     title: 'guides',
+//     sections: [
+//       {
+//         title: 'start here',
+//         items: [
+//           '/guides/',
+//           '/guides/overview/',
+//           '/guides/background/',
+//           '/guides/sprockets/',
+//           '/guides/outline/',
+//         ],
+//       },
+//       {
+//         title: 'guides',
+//         items: [
+//           '/guides/install/',
+//           '/guides/organize/',
+//           '/guides/write/',
+//           '/guides/import/',
+//           '/guides/integrate/',
+//           '/guides/compile/',
+//           '/guides/render/',
+//           '/guides/image/',
+//           '/guides/style/',
+//           '/guides/configure/',
+//           '/guides/optimize/',
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     name: 'recipes',
+//     title: 'recipes',
+//     sections: [
+//       {
+//         title: 'recipes',
+//         items: ['/recipes/'],
+//       },
+//     ],
+//   },
+// ]

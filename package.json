@@ -1,5 +1,5 @@
 {
-  "name": "frontendsonrails.dev",
+  "name": "webpackersurvival.dev",
   "private": true,
   "scripts": {
     "build": "gridsome build",

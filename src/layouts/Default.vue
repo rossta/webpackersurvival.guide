@@ -126,12 +126,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'prism-themes/themes/prism-material-oceanic.css';
+
 :root {
   --color-ui-background: theme('colors.white');
   --color-ui-typo: theme('colors.gray.700');
   --color-ui-sidebar: theme('colors.gray.200');
   --color-ui-border: theme('colors.gray.300');
-  --color-ui-primary: theme('colors.indigo.600');
+  --color-ui-primary: theme('colors.purple.800');
 }
 
 html[lights-out] {
@@ -139,7 +141,7 @@ html[lights-out] {
   --color-ui-typo: theme('colors.gray.100');
   --color-ui-sidebar: theme('colors.gray.800');
   --color-ui-border: theme('colors.gray.800');
-  --color-ui-primary: theme('colors.indigo.500');
+  --color-ui-primary: theme('colors.purple.400');
 
   pre[class*='language-'],
   code[class*='language-'] {
@@ -268,11 +270,11 @@ blockquote {
 }
 
 code {
-  @apply px-1 py-1 text-ui-typo bg-ui-sidebar font-mono border-b border-r border-ui-border text-sm rounded;
+  @apply text-ui-typo bg-ui-sidebar font-mono border-b border-r border-ui-border text-sm rounded;
 }
 
 pre[class*='language-'] {
-  @apply max-w-full overflow-x-auto rounded;
+  @apply p-5 max-w-full overflow-x-auto rounded;
 
   & + p {
     @apply mt-4;
