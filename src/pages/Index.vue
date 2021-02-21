@@ -30,8 +30,6 @@
             <ArrowRightCircleIcon class="ml-4" size="1x" />
           </g-link>
         </div>
-
-        <p class="mt-8 text-center">Open Source. MIT License.</p>
       </div>
 
       <div
