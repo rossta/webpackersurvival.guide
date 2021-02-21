@@ -110,7 +110,7 @@ export default {
   },
 
   metaInfo() {
-    const title = 'For Rails developers who don&rsquo;t love JavaScript'
+    const title = 'For Rails developers who dislike JavaScript'
     const description =
       'The best resource to learn and master asset bundling for Rails'
 
