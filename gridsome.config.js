@@ -4,17 +4,23 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const siteUrl = process.env.SITE_URL ? process.env.SITE_URL : ''
+const web = process.env.URL_WEB || false
+const twitter = process.env.URL_TWITTER || false
+const github = process.env.URL_GITHUB || false
+const gaID = process.env.GA_ID ? process.env.GA_ID : 'XX-999999999-9'
+
 module.exports = {
   siteName: 'WSG',
   icon: {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png',
   },
-  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com',
+  siteUrl,
   settings: {
-    web: process.env.URL_WEB || false,
-    twitter: process.env.URL_TWITTER || false,
-    github: process.env.URL_GITHUB || false,
+    web,
+    twitter,
+    github,
     nav: {
       links: [
         { path: '/orientation/', title: 'Orientation' },
@@ -84,7 +90,7 @@ module.exports = {
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: process.env.GA_ID ? process.env.GA_ID : 'XX-999999999-9',
+        id: gaID,
       },
     },
 
