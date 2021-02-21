@@ -110,9 +110,9 @@ export default {
   },
 
   metaInfo() {
-    const title = 'For Rails developers who dislike JavaScript'
+    const title = 'Webpacker Survival Guide'
     const description =
-      'The best resource to learn and master asset bundling for Rails'
+      'The best resource to learn and master asset bundling for Rails 6 with Webpacker made for Rails developers who dislike JavaScript.'
 
     return {
       title: title,
