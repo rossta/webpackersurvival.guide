@@ -12,7 +12,7 @@ So it’s more accurate to say, when you use Webpacker, it’s webpack that bund
 
 Webpacker makes webpack work with Rails.
 
-## Webpack: WTF?
+## WTF is webpack?
 
 Let's acknowledge something right off.
 Webpack is hard.
@@ -51,7 +51,7 @@ One final selling point of webpack is its optimization features. With webpack, y
 
 https://what-problem-does-it-solve.com/webpack/index.html
 
-## What does Webpacker do even?
+## So why do we need Webpacker?
 
 webpack can do a lot of things Sprockets can’t do. But, unlike Sprockets, webpack is written in JavaScript and lacks built-in integration for Rails.
 

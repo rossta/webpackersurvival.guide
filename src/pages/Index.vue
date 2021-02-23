@@ -7,6 +7,7 @@
           <h2 class="text-6xl font-black tracking-tighter border-none">
             Webpacker Survival Guide
           </h2>
+          <h4 class="work-in-progress">Work in Progress!</h4>
         </div>
         <h1 class="text-4xl text-center lg:text-5xl">
           Helping Rails and JavaScript play nice together
@@ -16,7 +17,9 @@
         </p>
 
         <div class="py-4">
-          <code class="block px-4 py-1 select-all bg-ui-border text-ui-typo">
+          <code
+            class="block px-4 py-1 select-all bg-ui-border text-ui-typo mb-6"
+          >
             gem add webpacker
           </code>
           <code class="block px-4 py-1 select-all bg-ui-border text-ui-typo">
@@ -48,8 +51,9 @@
             Orientation
           </h3>
           <p class="text-lg text-left">
-            Understand Webpacker does (and doesn't) do. Crafted especially for
-            developers familiar with the Rails asset pipeline.
+            This missing introduction. Understand what Webpacker does (and
+            doesn't) do. Crafted especially for developers familiar with the
+            Rails asset pipeline.
           </p>
         </div>
 
@@ -58,16 +62,16 @@
         >
           <MonitorIcon size="3x" class="mb-6 text-ui-primary" />
           <h3 class="font-bold tracking-wide uppercase text-ui-primary">
-            Guided Tour
+            Tour
           </h3>
           <p class="text-lg text-left">
             <span
               class="border-b border-dashed border-ui-primary text-ui-primary"
               >Coming soon!</span
             >
-            Follow our step-by-step to get up-and-running with Webpacker taking
-            you from zero-to-deploy covering topics from development to
-            optimization.
+            Follow the best step-by-step tutorial to get up-and-running with
+            Webpacker taking you from zero-to-deploy covering topics from
+            development to optimization.
           </p>
         </div>
 
@@ -83,8 +87,9 @@
               class="border-b border-dashed border-ui-primary text-ui-primary"
               >Coming soon!</span
             >
-            Tackle common Webpacker tasks including how-in-the-world to add
-            jQuery and setup steps for React and Vue.
+            Need help with a specific integration or task? Check out common
+            Webpacker tasks including how-in-the-world to add jQuery and setup
+            steps for React and Vue.
           </p>
         </div>
       </div>
@@ -151,5 +156,17 @@ export default {
 <style>
 .home-links a {
   margin-right: 1rem;
+}
+
+.work-in-progress {
+  text-transform: uppercase;
+  color: rgb(240, 51, 51);
+  border: 3px solid rgb(240, 51, 51);
+  padding: 2px;
+  display: block;
+  margin: 0;
+  position: absolute;
+  transform: rotate(4deg);
+  right: 10%;
 }
 </style>

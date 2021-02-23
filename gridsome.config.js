@@ -35,7 +35,7 @@ module.exports = {
         sections: [
           {
             title: 'Orientation',
-            items: ['/orientation/', '/orientation/wtf/'],
+            items: ['/orientation/', '/orientation/wtf/', '/orientation/pain/'],
           },
         ],
       },
