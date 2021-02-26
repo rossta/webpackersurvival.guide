@@ -4,11 +4,13 @@ What are we even doing?
 
 ## WTF is Webpacker?
 
-Webpacker is a Rails-specific tool for bundling JavaScript, CSS, image, and other frontend assets. So is Sprockets. [Confused? That’s OK](https://rossta.net/blog/why-does-rails-install-both-webpacker-and-sprockets.html).
+Webpacker is a Rails tool for bundling JavaScript, CSS, image, and other frontend assets.
 
-Webpacker is a wrapper around the Node.js library, webpack. Kind of like how ActiveRecord is an abstraction over SQL. Or what ActiveStorage is to cloud storage services.
+(So is Sprockets. [Confused? That’s OK](https://rossta.net/blog/why-does-rails-install-both-webpacker-and-sprockets.html)).
 
-So it’s more accurate to say, when you use Webpacker, it’s webpack that bundles JavaScript, CSS, image and other frontend assets.
+Webpacker wraps the node.js library, [webpack](https://webpack.js.org). Kind of like how ActiveRecord is an abstraction over SQL. Or what ActiveStorage is to cloud storage services.
+
+So webpack actually does the work to bundle JavaScript, CSS, image and other frontend assets.
 
 Webpacker makes webpack work with Rails.
 
