@@ -8,7 +8,8 @@
     "lint": "eslint . --cache --ext .js,.vue"
   },
   "dependencies": {
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-plausible-analytics": "^1.0.0"
   },
   "devDependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.0",

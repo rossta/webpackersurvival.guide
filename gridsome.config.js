@@ -8,7 +8,6 @@ const siteUrl = process.env.SITE_URL ? process.env.SITE_URL : ''
 const web = process.env.URL_WEB || false
 const twitter = process.env.URL_TWITTER || false
 const github = process.env.URL_GITHUB || false
-const gaID = process.env.GA_ID ? process.env.GA_ID : 'XX-999999999-9'
 
 module.exports = {
   siteName: 'WSG',
@@ -88,9 +87,10 @@ module.exports = {
     },
 
     {
-      use: '@gridsome/plugin-google-analytics',
+      use: 'gridsome-plugin-plausible-analytics',
       options: {
-        id: gaID,
+        dataDomain: 'webpackersurvival.guide',
+        outboundLinkTracking: true,
       },
     },
 
