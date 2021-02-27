@@ -10,22 +10,11 @@
           <h4 class="work-in-progress">Work in Progress!</h4>
         </div>
         <h1 class="text-4xl text-center lg:text-5xl">
-          Helping Rails and JavaScript play nice together
+          More bundling. Less bungling.
         </h1>
         <p class="text-xl font-medium text-center">
-          More bundling. Less bungling.
+          Helping Rails and JavaScript play nice together
         </p>
-
-        <div class="py-4">
-          <code
-            class="block px-4 py-1 select-all bg-ui-border text-ui-typo mb-6"
-          >
-            gem add webpacker
-          </code>
-          <code class="block px-4 py-1 select-all bg-ui-border text-ui-typo">
-            yarn add @rails/webpacker
-          </code>
-        </div>
 
         <div class="flex justify-center mt-8">
           <g-link

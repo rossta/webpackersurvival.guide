@@ -21,7 +21,7 @@
           <div
             v-for="link in settings.nav.links"
             :key="link.path"
-            class="flex flex-col items-center px-2 sm:px-4 sm:flex-row mx-2 mr-2"
+            class="flex flex-col items-center sm:flex-row mx-2 mr-2"
           >
             <g-link
               :to="link.path"

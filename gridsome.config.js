@@ -10,7 +10,7 @@ const twitter = process.env.URL_TWITTER || false
 const github = process.env.URL_GITHUB || false
 
 module.exports = {
-  siteName: 'WSG',
+  siteName: 'Webpacker Survival Guide',
   icon: {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png',
