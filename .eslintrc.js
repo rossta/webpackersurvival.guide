@@ -6,8 +6,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
-    'plugin:vue/recommended',
-    'prettier/vue',
+    'plugin:react/recommended',
+    'plugin:mdx/recommended',
   ],
   parserOptions: {
     parser: 'babel-eslint',
@@ -17,6 +17,10 @@ module.exports = {
     'prettier/prettier': ['error'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 }

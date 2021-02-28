@@ -1,9 +1,7 @@
 ---
 id: wtf
-title: WTF?
+title: What are we even doing?
 ---
-
-What are we even doing?
 
 ## WTF is Webpacker?
 

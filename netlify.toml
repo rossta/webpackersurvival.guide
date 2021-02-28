@@ -1,6 +1,6 @@
 [build]
-  command = "gridsome build"
-  publish = "dist/"
+  command = "docusaurus build"
+  publish = "build/"
 
 [build.environment]
   URL_WEB="https://rossta.net"

@@ -3,8 +3,6 @@ id: pain
 title: Why is this so difficult?
 ---
 
-# Why is this so difficult?
-
 Unfortunately, the transition to Webpacker from Sprockets has been difficult for many developers and teams. Webpacker hasn’t prevented developers from having to learn webpack. Not everyone agrees with its design or its defaults.
 
 ## Modular JavaScript
