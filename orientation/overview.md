@@ -1,5 +1,4 @@
 ---
-id: overview
 title: Overview
 slug: /
 description: The Webpacker Survival Guide provides the orientation and tips Rails developers need to use Webpacker successfully and without the frustration.
@@ -15,7 +14,7 @@ You're currently at the start of [Orientation](/orientation/). If you're new to 
 
 ## Tour
 
-Next is the guided [Tour](/tour/), an hands-on, in-depth tutorial to setting up and using Webpacker in a Rails application. Each section in the Tour is designed to build on the previous, taking you from zero to a deployed Rails + Webpacker application.
+Next is the guided [Tour](/), an hands-on, in-depth tutorial to setting up and using Webpacker in a Rails application. Each section in the Tour is designed to build on the previous, taking you from zero to a deployed Rails + Webpacker application.
 
 Highlights of the Tour include:
 

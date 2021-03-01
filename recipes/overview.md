@@ -1,3 +1,6 @@
-# Overview
+---
+title: Overview
+slug: /
+---
 
 Coming soon!

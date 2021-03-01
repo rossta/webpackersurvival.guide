@@ -49,12 +49,12 @@ module.exports = {
               to: 'orientation/',
             },
             {
-              label: 'Tutorial',
-              to: 'tutorial/',
+              label: 'Tour',
+              to: 'orientation/',
             },
             {
               label: 'Recipes',
-              to: 'recipes/',
+              to: 'orientation/',
             },
           ],
         },

@@ -1,5 +1,4 @@
 ---
-id: pain
 title: Why is this so difficult?
 ---
 

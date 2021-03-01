@@ -1,5 +1,4 @@
 ---
-id: wtf
 title: What are we even doing?
 ---
 
