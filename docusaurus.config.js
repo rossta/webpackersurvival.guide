@@ -1,3 +1,5 @@
+const editUrl = 'https://github.com/webpackersurvival.guide/edit/main'
+
 module.exports = {
   title: 'Webpacker Survival Guide',
   tagline: 'The definitive guide to Webpacker for Rails developers',
@@ -147,9 +149,8 @@ module.exports = {
         path: 'orientation',
         routeBasePath: 'orientation',
         sidebarPath: require.resolve('./sidebars/orientation.js'),
-        editUrl:
-          'https://github.com/webpackersurvival.guide/edit/main/orientation',
         showLastUpdateTime: true,
+        editUrl,
       },
     ],
     [
@@ -159,8 +160,8 @@ module.exports = {
         path: 'tour',
         routeBasePath: 'tour',
         sidebarPath: require.resolve('./sidebars/tour.js'),
-        editUrl: 'https://github.com/webpackersurvival.guide/edit/main/tour',
         showLastUpdateTime: true,
+        editUrl,
       },
     ],
     [
@@ -170,15 +171,15 @@ module.exports = {
         path: 'recipes',
         routeBasePath: 'recipes',
         sidebarPath: require.resolve('./sidebars/recipes.js'),
-        editUrl: 'https://github.com/webpackersurvival.guide/edit/main/recipes',
         showLastUpdateTime: true,
+        editUrl,
       },
     ],
     [
       '@docusaurus/plugin-content-blog',
       {
         showReadingTime: true,
-        editUrl: 'https://github.com/webpackersurvival.guide/edit/main/blog',
+        editUrl,
       },
     ],
     '@docusaurus/plugin-content-pages',
