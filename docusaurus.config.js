@@ -6,8 +6,16 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'rossta', // Usually your GitHub org/user name.
+  organizationName: 'rossta',
   projectName: 'webpackersurvival.guide', // Usually your repo name.
+  scripts: [
+    {
+      src: 'https://plausible.io/js/plausible.outbound-links.js',
+      async: true,
+      defer: true,
+      'data-domain': 'webpackersurvival.guide',
+    },
+  ],
   themeConfig: {
     navbar: {
       title: 'Webpacker Survival Guide',
@@ -48,14 +56,14 @@ module.exports = {
               label: 'Orientation',
               to: 'orientation/',
             },
-            {
-              label: 'Tour',
-              to: 'orientation/',
-            },
-            {
-              label: 'Recipes',
-              to: 'orientation/',
-            },
+            // {
+            //   label: 'Tour',
+            //   to: 'orientation/',
+            // },
+            // {
+            //   label: 'Recipes',
+            //   to: 'orientation/',
+            // },
           ],
         },
         {
