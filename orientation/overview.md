@@ -1,12 +1,12 @@
 ---
-title: Overview
+title: Webpacker Survival Guide Overview
 slug: /
 description: The Webpacker Survival Guide provides the orientation and tips Rails developers need to use Webpacker successfully and without the frustration.
 ---
 
 Welcome to the Webpacker Survival Guide.
 
-This site is comprised of severals sections.
+This site is comprised of several sections.
 
 ## Orientation
 

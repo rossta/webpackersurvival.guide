@@ -7,7 +7,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'rossta',
-  projectName: 'webpackersurvival.guide', // Usually your repo name.
+  projectName: 'webpackersurvival.guide',
   scripts: [
     {
       src: 'https://plausible.io/js/plausible.outbound-links.js',
@@ -27,6 +27,11 @@ module.exports = {
         {
           to: 'orientation',
           label: 'Orientation',
+          position: 'left',
+        },
+        {
+          to: 'tour',
+          label: 'Tour',
           position: 'left',
         },
         {
@@ -57,14 +62,14 @@ module.exports = {
               label: 'Orientation',
               to: 'orientation/',
             },
-            // {
-            //   label: 'Tour',
-            //   to: 'orientation/',
-            // },
-            // {
-            //   label: 'Recipes',
-            //   to: 'orientation/',
-            // },
+            {
+              label: 'Tour',
+              to: 'tour/',
+            },
+            {
+              label: 'Recipes',
+              to: 'recipes/',
+            },
           ],
         },
         {
@@ -144,6 +149,17 @@ module.exports = {
         sidebarPath: require.resolve('./sidebars/orientation.js'),
         editUrl:
           'https://github.com/webpackersurvival.guide/edit/main/orientation',
+        showLastUpdateTime: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tour',
+        path: 'tour',
+        routeBasePath: 'tour',
+        sidebarPath: require.resolve('./sidebars/tour.js'),
+        editUrl: 'https://github.com/webpackersurvival.guide/edit/main/tour',
         showLastUpdateTime: true,
       },
     ],

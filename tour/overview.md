@@ -1,5 +1,5 @@
 ---
-title: Recipes Overview
+title: Tour Overview
 slug: /
 ---
 
