@@ -1,6 +1,6 @@
-# Website
+# Webpacker Survival Guide
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+Webpacker Survival Guide aims to be the best free resource for learning how to use Webpacker (and webpack) with Rails.
 
 ## Local Development
 
