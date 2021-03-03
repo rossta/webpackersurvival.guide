@@ -4,8 +4,6 @@
 
 Visit us at [webpackersurvival.guide](https://www.webpackersurvival.guide)
 
-## Contributing
-
 Feedback and participation are strongly encouraged! Please see [Contributing](./CONTRIBUTING.md) for more details on how to get involved.
 
 ## Local Development
