@@ -73,13 +73,52 @@ import './stylesheets/welcome.scss'
 
 ### Including multiple files at once
 
-TODO
+<SprocketsVsWebpackerTabs>
+  <TabItem value="sprockets"></TabItem>
+  <TabItem value="webpacker"></TabItem>
+</SprocketsVsWebpackerTabs>
 
 ### Rendering scripts
 
-javascript_include_tag
+<SprocketsVsWebpackerTabs>
 
-javascript_pack_tag
+<TabItem value="sprockets">
+
+```bash
+app
+├── assets
+│   ├── config
+│   │   └── manifest.js
+│   ├── images
+│   ├── javascripts
+│   │   └── application.js
+│   └── stylesheets
+│       └── application.css
+```
+
+```erb
+<%= javascript_include_tag 'application' %>
+```
+
+</TabItem>
+
+<TabItem value="webpacker">
+
+```bash
+app
+├── packs
+│   └── entrypoints
+│       ├── application.js
+│       └── application.scss
+```
+
+```js
+<%= javascript_pack_tag 'application' %>
+```
+
+</TabItem>
+
+</SprocketsVsWebpackerTabs>
 
 ### Rendering stylesheets
 

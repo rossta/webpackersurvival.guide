@@ -131,6 +131,12 @@ module.exports = {
       apiKey: 'XXXXX',
       indexName: 'webpackersurvival',
     },
+    prism: {
+      theme: require('prism-react-renderer/themes/dracula'),
+
+      // https://prismjs.com/#supported-languages
+      additionalLanguages: ['ruby', 'erb'],
+    },
   },
   themes: [
     [
