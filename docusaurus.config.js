@@ -1,4 +1,4 @@
-const editUrl = 'https://github.com/webpackersurvival.guide/edit/main'
+const editUrl = 'https://github.com/rossta/webpackersurvival.guide/edit/main'
 
 module.exports = {
   title: 'Webpacker Survival Guide',
@@ -132,8 +132,6 @@ module.exports = {
       indexName: 'webpackersurvival',
     },
     prism: {
-      theme: require('prism-react-renderer/themes/dracula'),
-
       // https://prismjs.com/#supported-languages
       additionalLanguages: ['ruby', 'erb'],
     },
@@ -152,9 +150,9 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'orientation',
-        path: 'orientation',
+        path: 'content/orientation',
         routeBasePath: 'orientation',
-        sidebarPath: require.resolve('./sidebars/orientation.js'),
+        sidebarPath: require.resolve('./src/sidebars/orientation.js'),
         showLastUpdateTime: true,
         editUrl,
       },
@@ -163,9 +161,9 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'tour',
-        path: 'tour',
+        path: 'content/tour',
         routeBasePath: 'tour',
-        sidebarPath: require.resolve('./sidebars/tour.js'),
+        sidebarPath: require.resolve('./src/sidebars/tour.js'),
         showLastUpdateTime: true,
         editUrl,
       },
@@ -174,9 +172,9 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'recipes',
-        path: 'recipes',
+        path: 'content/recipes',
         routeBasePath: 'recipes',
-        sidebarPath: require.resolve('./sidebars/recipes.js'),
+        sidebarPath: require.resolve('./src/sidebars/recipes.js'),
         showLastUpdateTime: true,
         editUrl,
       },

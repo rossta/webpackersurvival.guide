@@ -8,11 +8,10 @@ In this section, we'll compare how you get things done in Sprockets and Webpacke
 
 Simple example for including a library and making use of its functionality.
 
-import SprocketsVsWebpackerTabs from '../../src/components/SprocketsVsWebpackerTabs'
+import SprocketsVsWebpackerTabs from '../../../src/components/SprocketsVsWebpackerTabs'
 import TabItem from '@theme/TabItem'
 
 <SprocketsVsWebpackerTabs>
-
 <TabItem value="sprockets">
 
 ```js
@@ -31,26 +30,75 @@ $('...')
 ```
 
 </TabItem>
+
 </SprocketsVsWebpackerTabs>
 
 ### Including third-party JavaScript
 
-Sprockets
-Install “asset gems” from rubygems.org via bundler + Gemfile
+<SprocketsVsWebpackerTabs>
+<TabItem value="sprockets">
 
-Webpacker
-Install packages from NPM via yarn + package.json
+1. Install Ruby gem containing Sprockets-friendly assets with Bundler
+
+```ruby title="Gemfile"
+gem "lodash-rails"
+```
+
+This example uses the [lodash-rails](https://github.com/rh/lodash-rails) gem.
+
+2. Require the library once in your asset bundle
+
+```js title="app/assets/application.js"
+//= require lodash
+```
+
+3. Reference global variables from anywhere
+
+```js title="app/assets/widget.js"
+const object = { a: 1, b: '2', c: 3 }
+
+_.pick(object, ['a', 'c'])
+// => { 'a': 1, 'c': 3 }
+```
+
+</TabItem>
+<TabItem value="webpacker">
+
+1. Install NPM package with `yarn`
+
+```bash
+yarn add lodash
+```
+
+This programmatically adds library to project's `package.json` file:
+
+```json
+"lodash-es": "^4.17.21",
+```
+
+2. Import the library as needed through the dependency graph
+
+```js title="app/packs/src/widget.js"
+import { pick } from 'lodash-es'
+
+const object = { a: 1, b: '2', c: 3 }
+
+pick(object, ['a', 'c'])
+// => { 'a': 1, 'c': 3 }
+```
+
+</TabItem>
+</SprocketsVsWebpackerTabs>
 
 ### Including CSS
 
 Simple example for including a library and making use of its functionality.
 
 <SprocketsVsWebpackerTabs>
-
 <TabItem value="sprockets">
 
 ```css
-//= require './welcome.scss'
+//= require ./welcome.scss
 ```
 
 ```css
@@ -112,7 +160,7 @@ app
 │       └── application.scss
 ```
 
-```js
+```erb
 <%= javascript_pack_tag 'application' %>
 ```
 
@@ -148,6 +196,9 @@ app/assets
 
 ```erb
 <%= image_tag 'backpack.jpg' %>
+```
+
+```erb
 <%= image_tag 'travel/backpack.jpg' %>
 ```
 
@@ -175,8 +226,11 @@ See [requiring multiple files](/) to import many images
 3.  Use `image_pack_tag` helper in view
 
 ```erb
-<%= image_tag 'backpack.jpg' %>
-<%= image_tag 'travel/backpack.jpg' %>
+<%= image_pack_tag 'backpack.jpg' %>
+```
+
+```erb
+<%= image_pack_tag 'travel/backpack.jpg' %>
 ```
 
 </TabItem>
