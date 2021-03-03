@@ -1,6 +1,12 @@
 # Webpacker Survival Guide
 
-Webpacker Survival Guide aims to be the best free resource for learning how to use Webpacker (and webpack) with Rails.
+> Webpacker Survival Guide aims to be the best free resource for learning how to use Webpacker (and webpack) with Rails.
+
+Visit us at [webpackersurvival.guide](https://www.webpackersurvival.guide)
+
+## Contributing
+
+Feedback and participation are strongly encouraged! Please see [Contributing](./CONTRIBUTING.md) for more details on how to get involved.
 
 ## Local Development
 
