@@ -1,12 +1,12 @@
 import React from 'react'
 import Tabs from '@theme/Tabs'
 
-export default function({ children }) {
+export default function SprocketsVsWebpackerTabs({ children }) {
   return <Tabs
-    defaultValue="sprockets"
+    defaultValue="webpacker"
     values={[
-      { label: 'Sprockets', value: 'sprockets' },
       { label: 'Webpacker', value: 'webpacker' },
+      { label: 'Sprockets', value: 'sprockets' },
     ]}
   >
     {children}

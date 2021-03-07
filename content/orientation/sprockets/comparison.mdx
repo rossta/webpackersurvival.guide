@@ -1,36 +1,54 @@
 ---
-title: Comparison
+title: Side-by-side comparison
 ---
 
 In this section, we'll compare how you get things done in Sprockets and Webpacker, side-by-side.
 
-### Including application JavaScript
-
-Simple example for including a library and making use of its functionality.
+### Importing a JavaScript file
 
 import SprocketsVsWebpackerTabs from '../../../src/components/SprocketsVsWebpackerTabs'
 import TabItem from '@theme/TabItem'
 
 <SprocketsVsWebpackerTabs>
-<TabItem value="sprockets">
-
-```js
-//= require jquery
-
-$('...')
-```
-
-</TabItem>
 <TabItem value="webpacker">
 
-```js
-import $ from 'jquery'
+In Webpacker, files are included in a bundle with "imports". The `import` syntax is part of the ES6 module specification. An import expression can produce local reference(s) to the exports of the referenced file.
 
-$('...')
+```js title="app/packs/javascript/some-file.js"
+import AnotherModule from './anothermodule'
+
+const other = new AnotherModule()
 ```
+
+An import is local to the file where it is used, so you'd need to use the same import expression in any file where you want a given module reference.
+
+```js title="app/packs/javascript/a-second-file.js"
+import AnotherModule from './anothermodule'
+
+const other = new AnotherModule()
+```
+
+#### Resources
+
+- [Importing and Exporting in Detail, Exploring ES6](https://exploringjs.com/es6/ch_modules.html#sec_importing-exporting-details)
 
 </TabItem>
 
+<TabItem value="sprockets">
+
+Sprockets require comments rely solely on side-effects in the global scope. That means you'd only require the file once for use anywhere in a given bundle. This also means the require statement is order-dependent
+
+```js title="app/assets/javascripts/some-file.js"
+//= require ./another-file
+
+var other = new window.AnotherFile()
+```
+
+```js title="app/assets/javascripts/some-file-required-later.js"
+var other = new window.AnotherFile()
+```
+
+</TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Including third-party JavaScript
@@ -108,12 +126,14 @@ Simple example for including a library and making use of its functionality.
 </TabItem>
 <TabItem value="webpacker">
 
-```js
-import './stylesheets/welcome.scss'
-```
-
 ```css
 @import './welcome.scss';
+```
+
+With Webpacker, you can also import CSS from JavaScript if you have [the prerequisites installed](/). TODO: Link
+
+```js title="app/packs/javascript/anyfile.js"
+import './stylesheets/welcome.scss'
 ```
 
 </TabItem>
@@ -122,8 +142,8 @@ import './stylesheets/welcome.scss'
 ### Including multiple files at once
 
 <SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets"></TabItem>
-  <TabItem value="webpacker"></TabItem>
+  <TabItem value="sprockets">TODO: Add content</TabItem>
+  <TabItem value="webpacker">TODO: Add content</TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Rendering scripts
@@ -205,7 +225,7 @@ app/assets
 </TabItem>
 <TabItem value="webpacker">
 
-1.  Place images in a directory of your choice
+1.  Place images in a directory of your choice. Webpacker does not automatically process images unless you manually import them.
 
 ```sh
 app/packs

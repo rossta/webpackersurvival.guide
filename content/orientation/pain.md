@@ -4,11 +4,25 @@ title: Why is this so difficult?
 
 Unfortunately, the transition to Webpacker from Sprockets has been difficult for many developers and teams. Webpacker hasn’t prevented developers from having to learn webpack. Not everyone agrees with its design or its defaults.
 
-## Modular JavaScript
+## webpack is fundamentally different
 
-We just don’t “get” JavaScript modules.
+> Wait, don't Sprockets and Webpacker do basically the same thing?
 
-Lack of familiarity with how JavaScript modules has been a big issue. Modular JavaScript is a dramatic shift in how we write and compile code. Sure, life with the Rails asset pipeline was much simpler. With webpack, we cannot rely on global code execution by default as before.
+Yes and no.
+
+"Yes" in that Sprocket and webpack are both, generally speaking, tools for bundling JavaScript, CSS, images, and other static assets for the browser. But—
+
+Sprockets and webpack are designed quite differently. They make very different assumptions about where your JavaScript lives on disk, how it should be bundled together, and what happens during the compilation process.
+
+To be frank, it's impossible to make them behave the same way. If you're expecting Webpacker to work just like Sprockets, you're going to be let down.
+
+## We don’t understand modules
+
+One of the big adjustments Rails developers typically need to make with Webpacker (or any modern asset bundler) is understanding modular JavaScript.
+
+Modular JavaScript is a dramatic shift in how we write and compile code. Sure, life with the Rails asset pipeline was much simpler. With webpack, we cannot rely on global code execution by default as before.
+
+Lack of familiarity with the practical mechansisms of modules has been a big issue as proven by numerous GitHub issues and StackOverflow questions.
 
 ## jQuery and webpack don’t play nice
 
@@ -20,11 +34,11 @@ Webpack configuration lacks the developer friendliness we know and love in Rails
 
 ## So. Many. Packages
 
-The JS community moves at a fast pace making it difficult to keep up. Babel, PostCSS, browserslist, React, Vue, Angular, Stimulus, webpack, node modules, NPM, yarn...
-
 > Argggghhhhh!!!
 >
 > —Rails developers, everywhere
+
+The JS community moves at a fast pace making it difficult to keep up. Babel, PostCSS, browserslist, React, Vue, Angular, Stimulus, webpack, node modules, NPM, yarn...
 
 ## Lack of Resources
 
@@ -32,7 +46,7 @@ Webpacker was released back in 2016.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Rails 5.1 will ship with Yarn to manage JS dependencies and --webpack to compile app-like JS via Webpacker: <a href="https://t.co/iWFNgO87d3">https://t.co/iWFNgO87d3</a></p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/808348184481124352?ref_src=twsrc%5Etfw">December 12, 2016</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-It took until early 2021 for there to be an official Rails guide
+It took until early 2021 for there to be an official Rails guide. There has been some community-driven documentation buried in the Webpacker repository.
 
 Rails developers has been missing a single authority for getting their Webpacker questions answered—until now!
 
