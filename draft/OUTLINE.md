@@ -1,5 +1,8 @@
 # Webpacker on Rails
 
+For Rails Developers who hate JavaScript
+The bare minimum you need to get up and running with Webpacker
+
 1. Prelude
 
    - Who are you?
@@ -114,3 +117,7 @@
       - can remove dead code
       - Webpack allows you to import code dynamically
       - Webpack can optimize your bundles for you
+
+## Notes
+
+How do I just get rid of Webpacker?
