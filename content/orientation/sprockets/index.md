@@ -28,7 +28,7 @@ Stuff Webpacker does better than Sprockets
 - Split your code into smaller, cacheable fragments, both statically and dynamically, to help developers minimize latency in end user download, parse, and execute times
 - There are a wide variety of configurable source map options
 
-To the Rails core team, Webpacker solves some problems better than Sprockets. But, Sprockets solves some problems better than Webpacker. So a default Rails 6 application includes both.
+To the Rails core team, Webpacker solves some problems better than Sprockets. But, Sprockets solves some problems better than Webpacker. Therefore, they decided a default Rails 6 application would include both.
 
 Resources
 

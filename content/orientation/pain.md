@@ -4,15 +4,21 @@ title: Why is this so difficult?
 
 Unfortunately, the transition to Webpacker from Sprockets has been difficult for many developers and teams. Webpacker hasn’t prevented developers from having to learn webpack. Not everyone agrees with its design or its defaults.
 
-## webpack is fundamentally different
+## Webpacker is fundamentally different
 
 > Wait, don't Sprockets and Webpacker do basically the same thing?
 
 Yes and no.
 
-"Yes" in that Sprocket and webpack are both, generally speaking, tools for bundling JavaScript, CSS, images, and other static assets for the browser. But—
+Yes, generally speaking, Sprocket and Webpacker are both tools for bundling JavaScript, CSS, images, and other static assets for the browser. But—
 
-Sprockets and webpack are designed quite differently. They make very different assumptions about where your JavaScript lives on disk, how it should be bundled together, and what happens during the compilation process.
+Sprockets and Webpacker are designed quite differently. They make very different assumptions about where your JavaScript lives on disk, how it should be bundled together, and what happens during the compilation process.
+
+Much of the difference can be attributed to the fact that Webpacker is based on a webpack and webpack reflects the values of the JavaScript community. When it comes to certain aspects of software design, the Ruby/Rails and JavaScript communities value different things.
+
+## Webpacker is not a "drop-in" replacement
+
+With Sprockets, things "just work". Webpacker often requires additional intervention to get things working the way you'd like. Chances, the Webpacker abstraction around webpack will only get you so far and you'll need to drop down into webpack configuration to add a library you want. Many of the Rails asset gems you may have used in the past are not set up to work with Webpacker. Webpacker is not designed to work seamlessly in Rails engines. The list goes on.
 
 To be frank, it's impossible to make them behave the same way. If you're expecting Webpacker to work just like Sprockets, you're going to be let down.
 

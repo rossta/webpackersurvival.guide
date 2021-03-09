@@ -20,7 +20,7 @@ import AnotherModule from './anothermodule'
 const other = new AnotherModule()
 ```
 
-An import is local to the file where it is used, so you'd need to use the same import expression in any file where you want a given module reference.
+An import is local to the file where it is used. To use it in different files, you'd need to repeat the import expression.
 
 ```js title="app/packs/javascript/a-second-file.js"
 import AnotherModule from './anothermodule'
@@ -36,13 +36,15 @@ const other = new AnotherModule()
 
 <TabItem value="sprockets">
 
-Sprockets require comments rely solely on side-effects in the global scope. That means you'd only require the file once for use anywhere in a given bundle. This also means the require statement is order-dependent
+Sprockets requires relies on special comment-based syntax which must rely solely on side-effects. Any references would need to be accessed through global scope.
 
 ```js title="app/assets/javascripts/some-file.js"
 //= require ./another-file
 
 var other = new window.AnotherFile()
 ```
+
+This also means you'd only require the file once for use anywhere in a given bundle and require statements are order-dependent.
 
 ```js title="app/assets/javascripts/some-file-required-later.js"
 var other = new window.AnotherFile()
@@ -54,23 +56,58 @@ var other = new window.AnotherFile()
 ### Including third-party JavaScript
 
 <SprocketsVsWebpackerTabs>
+<TabItem value="webpacker">
+
+Third-party node packages for Webpacker are typically installed with `yarn`.
+
+```bash
+yarn add lodash
+```
+
+This programmatically adds the library to project's `package.json` file and adds it to the local `node_modules` directory on disk.
+
+```json file="package.json"
+"lodash-es": "^4.17.21",
+```
+
+Import the library in any file where its references are needed. The module will only be included once in a given bundle.
+
+```js title="app/packs/src/widget1.js"
+import { pick } from 'lodash-es'
+
+const object = { a: 1, b: '2', c: 3 }
+
+pick(object, ['a', 'c'])
+// => { a: 1, c: 3 }
+```
+
+```js title="app/packs/src/widget2.js"
+import { pick } from 'lodash-es'
+
+const object = { d: 2, e: '3', f: 4 }
+
+pick(object, ['d', 'f'])
+// => { d: 2, f: 4 }
+```
+
+</TabItem>
 <TabItem value="sprockets">
 
-1. Install Ruby gem containing Sprockets-friendly assets with Bundler
+Sprockets relies on directory conventions for loading assets from third-party gems.
+
+Install Ruby gem containing Sprockets-friendly assets with Bundler. This example uses the [lodash-rails](https://github.com/rh/lodash-rails) gem.
 
 ```ruby title="Gemfile"
 gem "lodash-rails"
 ```
 
-This example uses the [lodash-rails](https://github.com/rh/lodash-rails) gem.
-
-2. Require the library once in your asset bundle
+Require the library once in your asset bundle.
 
 ```js title="app/assets/application.js"
 //= require lodash
 ```
 
-3. Reference global variables from anywhere
+Access global references from anywhere.
 
 ```js title="app/assets/widget.js"
 const object = { a: 1, b: '2', c: 3 }
@@ -80,75 +117,30 @@ _.pick(object, ['a', 'c'])
 ```
 
 </TabItem>
-<TabItem value="webpacker">
-
-1. Install NPM package with `yarn`
-
-```bash
-yarn add lodash
-```
-
-This programmatically adds library to project's `package.json` file:
-
-```json
-"lodash-es": "^4.17.21",
-```
-
-2. Import the library as needed through the dependency graph
-
-```js title="app/packs/src/widget.js"
-import { pick } from 'lodash-es'
-
-const object = { a: 1, b: '2', c: 3 }
-
-pick(object, ['a', 'c'])
-// => { 'a': 1, 'c': 3 }
-```
-
-</TabItem>
-</SprocketsVsWebpackerTabs>
-
-### Including CSS
-
-Simple example for including a library and making use of its functionality.
-
-<SprocketsVsWebpackerTabs>
-<TabItem value="sprockets">
-
-```css
-//= require ./welcome.scss
-```
-
-```css
-@import '../welcome.scss';
-```
-
-</TabItem>
-<TabItem value="webpacker">
-
-```css
-@import './welcome.scss';
-```
-
-With Webpacker, you can also import CSS from JavaScript if you have [the prerequisites installed](/). TODO: Link
-
-```js title="app/packs/javascript/anyfile.js"
-import './stylesheets/welcome.scss'
-```
-
-</TabItem>
-</SprocketsVsWebpackerTabs>
-
-### Including multiple files at once
-
-<SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets">TODO: Add content</TabItem>
-  <TabItem value="webpacker">TODO: Add content</TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Rendering scripts
 
 <SprocketsVsWebpackerTabs>
+
+<TabItem value="webpacker">
+
+```bash
+app
+├── packs
+│   ├── src
+│   │   └── welcome.js
+│   │   └── components
+│   │       └── Button.js
+│   └── entrypoints
+│       ├── application.js
+```
+
+```erb
+<%= javascript_pack_tag 'application' %>
+```
+
+</TabItem>
 
 <TabItem value="sprockets">
 
@@ -170,29 +162,68 @@ app
 
 </TabItem>
 
+</SprocketsVsWebpackerTabs>
+
+### Including multiple files at once
+
+<SprocketsVsWebpackerTabs>
+  <TabItem value="sprockets">TODO: Add content</TabItem>
+  <TabItem value="webpacker">TODO: Add content</TabItem>
+</SprocketsVsWebpackerTabs>
+
+### Including CSS
+
+<SprocketsVsWebpackerTabs>
 <TabItem value="webpacker">
 
+Webpacker will process CSS if you have [the prerequisites installed](/). TODO: Link
+
+```css
+@import './welcome.scss';
+```
+
+```js title="app/packs/javascript/anyfile.js"
+import './stylesheets/welcome.scss'
+```
+
+</TabItem>
+<TabItem value="sprockets">
+
+```css
+//= require ./welcome.scss
+```
+
+```css
+@import '../welcome.scss';
+```
+
+</TabItem>
+</SprocketsVsWebpackerTabs>
+
+### Rendering stylesheets
+
+<SprocketsVsWebpackerTabs>
+<TabItem value="webpacker">
 ```bash
 app
 ├── packs
+│   ├── stylesheets
+│       └── welcome.scss
 │   └── entrypoints
 │       ├── application.js
 │       └── application.scss
 ```
 
-```erb
-<%= javascript_pack_tag 'application' %>
-```
+stylesheet_link_tag
 
 </TabItem>
 
-</SprocketsVsWebpackerTabs>
-
-### Rendering stylesheets
-
-stylesheet_link_tag
+<TabItem value="sprockets">
 
 stylesheet_pack_tag
+
+</TabItem>
+</SprocketsVsWebpackerTabs>
 
 ### Rendering images
 
@@ -259,6 +290,11 @@ See [requiring multiple files](/) to import many images
 
 ### Adding bundles
 
+<SprocketsVsWebpackerTabs>
+  <TabItem value="sprockets">TODO: Add content</TabItem>
+  <TabItem value="webpacker">TODO: Add content</TabItem>
+</SprocketsVsWebpackerTabs>
+
 Sprockets 3:
 
 Rails.application.assets.precompile += []
@@ -273,6 +309,11 @@ Add additional entrypoint files.
 
 ## Rendering path to asset
 
+<SprocketsVsWebpackerTabs>
+  <TabItem value="sprockets">TODO: Add content</TabItem>
+  <TabItem value="webpacker">TODO: Add content</TabItem>
+</SprocketsVsWebpackerTabs>
+
 asset_path
 asset_url
 
@@ -281,11 +322,21 @@ asset_pack_url
 
 ## Rendering favicon
 
+<SprocketsVsWebpackerTabs>
+  <TabItem value="sprockets">TODO: Add content</TabItem>
+  <TabItem value="webpacker">TODO: Add content</TabItem>
+</SprocketsVsWebpackerTabs>
+
 favicon_link_tag
 
 favicon_pack_tag
 
 ## Running precompilation
+
+<SprocketsVsWebpackerTabs>
+  <TabItem value="sprockets">TODO: Add content</TabItem>
+  <TabItem value="webpacker">TODO: Add content</TabItem>
+</SprocketsVsWebpackerTabs>
 
 Sprockets
 rails assets:precompile
@@ -294,13 +345,3 @@ Webpacker
 rails assets:precompile
 or, rails webpacker:precompile
 or, bin/webpack
-
-## Scope
-
-Sprockets
-Files are evaluated in the global scope
-
-Webpacker
-Files are modules and have module scope.
-
-Assign to window to make variables available in the global scope.

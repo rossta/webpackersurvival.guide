@@ -38,7 +38,7 @@ To help you decide, see the following guide
 - My Rails app does not need much JavaScript
 - I am a backend developer with limited knowledge of JavaScript ecosystem
 - I am not ready to invest time to understand webpack and Webpacker
-- I just don't like it: too complicated / too confusing / so much different than what I'm used to
+- I just don't like it: too complicated / too confusing / much different than what I'm used to
 
 ## Why use both?
 

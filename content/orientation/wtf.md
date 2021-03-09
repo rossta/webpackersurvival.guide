@@ -4,22 +4,17 @@ title: What are we even doing?
 
 ## WTF is Webpacker?
 
-Webpacker is a Rails tool for bundling JavaScript, CSS, image, and other frontend assets.
-
-(So is Sprockets. [Confused? That’s OK](https://rossta.net/blog/why-does-rails-install-both-webpacker-and-sprockets.html)).
+Webpacker is a Rails tool for bundling JavaScript, CSS, image, and other frontend assets. Sprockets and the Rails asset pipeline was designed to serve the same purpose ([Confused about why Rails includes both? That’s OK](https://rossta.net/blog/why-does-rails-install-both-webpacker-and-sprockets.html)).
 
 Webpacker wraps the node.js library, [webpack](https://webpack.js.org). Kind of like how ActiveRecord is an abstraction over SQL. Or what ActiveStorage is to cloud storage services.
 
-So webpack actually does the work to bundle JavaScript, CSS, image and other frontend assets.
+When you use Webpacker, it's really webpack under the hood doing the work to bundle JavaScript, CSS, image and other frontend assets.
 
 Webpacker makes webpack work with Rails.
 
 ## WTF is webpack?
 
-Let's acknowledge something right off.
-Webpack is hard.
-It's ok to feel frustrated.
-It may help to know that you're not alone.
+First, let's acknowledge: webpack is hard. It's OK to feel frustrated. It may help to know that you're not alone.
 
 If you’re struggling to make Webpacker work, it could be a bug or because of a surprising Webpacker default. But, most likely it’s because you’re missing some knowledge about webpack, how it works, and what it’s trying to do.
 
@@ -35,13 +30,13 @@ Like Sprockets, webpack lets you organize your JavaScript and CSS in separate fi
 
 The fundamental difference between Sprockets and webpack that you must understand:
 
-webpack provides a module runtime. Sprockets does not.
+Webpack provides a module runtime. Sprockets does not.
 
 Webpack treats every file as a separate module. This means every file has its own scope. All your webpack code is isolated from the global scope. Code from other files must be explicitly imported. Code to be shared with other files must be explicitly exported.
 
 ### Flexibility
 
-Webpack is itself designed to be extremely flexible and extensible so that it can serve a variety of needs and use cases. There are countless webpack plugins for transformations of various source code syntaxes (TypeScript, ES6, React JSX, Vue single file components, etc) and for controlling the structure of the output.
+Webpack is itself designed to be extremely flexible and extensible. This allows it to be adapted to a wide variety of needs and use cases. There are countless webpack plugins for transformations of various source code syntaxes (TypeScript, ES6, React JSX, Vue single file components, etc) and for controlling the structure of the output.
 
 This flexibility comes with a price: webpack can be quite difficult to understand. The documentation is quite dense. Webpack itself has a large number of configuration options with perplexing names not to mention distinct configuration for many of its third-party plugins.
 
@@ -53,9 +48,9 @@ One final selling point of webpack is its optimization features. With webpack, y
 
 https://what-problem-does-it-solve.com/webpack/index.html
 
-## So why do we need Webpacker?
+## Why do we need Webpacker?
 
-webpack can do a lot of things Sprockets can’t do. But, unlike Sprockets, webpack is written in JavaScript and lacks built-in integration for Rails.
+Webpack can do a lot of things Sprockets can’t do. But, unlike Sprockets, webpack is written in JavaScript and lacks built-in integration for Rails.
 
 That’s where Webpacker comes in. Webpacker’s job is to provide the Ruby and JavaScript helpers and configuration to make webpack work with Rails.
 
