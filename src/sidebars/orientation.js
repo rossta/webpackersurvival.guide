@@ -6,7 +6,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Sprockets vs Webpacker',
-      items: ['sprockets/index', 'sprockets/comparison', 'sprockets/choosing'],
+      items: ['sprockets/index', 'sprockets/choosing', 'sprockets/comparison'],
     },
   ],
 }
