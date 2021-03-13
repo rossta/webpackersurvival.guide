@@ -168,6 +168,17 @@ module.exports = {
         editUrl,
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'recipes',
+        path: 'content/recipes',
+        routeBasePath: 'recipes',
+        sidebarPath: require.resolve('./src/sidebars/recipes.js'),
+        showLastUpdateTime: true,
+        editUrl,
+      },
+    ],
 
     [
       '@docusaurus/plugin-content-blog',
