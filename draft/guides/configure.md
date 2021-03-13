@@ -85,7 +85,7 @@ config/webpack
 
 For experienced frontend developers wondering _where is `webpack.config.js`?_, it's here, as `config/webpack/{development,test,production}.js`; there is a separate config file for each Rails environment.
 
-These files are to webpack configuration what Ruby config files `config/environments/{development,test,production}.rb` are Rails configuration: the place to customize environment-specific needs. Just as `config/application.rb` is the shared configuration for all Rails environments, so is `config/webpack/environment.js` for each of the environment-specific webpack config files.
+These files are to webpack configuration what Ruby config files `config/environments/{development,test,production}.rb` are Rails configuration: the place to customize environment-specific needs. Similar to how `config/application.rb` is the shared configuration for all Rails environments, `config/webpack/environment.js` is the shared webppack configuration for each environment.
 
 The `config/webpack/base.js` file is where the default webpack configuration is imported via `@rails/webpacker`.
 

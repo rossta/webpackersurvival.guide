@@ -21,7 +21,7 @@ This means there may come a time when you need to roll up your sleeves and peel 
 
 ### Providing jQuery as an import to legacy plugins and exposing to global scope
 
-Here's an example of how to "provide" a jQuery import to a legacy package that doesn't understand modules and to "expose" the `$` variable for the global scope (so you can use `$(...)` expressions in raw `<script>` tags).
+Here's an example of how to "provide" a jQuery import to a legacy package that doesn't understand modules and to "expose" the `$` variable for the global scope (allowing you to use `$(...)` expressions in raw `<script>` tags).
 
 ```sh
 $ yarn add expose-loader

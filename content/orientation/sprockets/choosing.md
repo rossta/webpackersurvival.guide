@@ -1,10 +1,34 @@
 ---
 title: Choosing between Webpacker and Sprockets
+sidebar_label: Choosing
 ---
 
 The good news is there's no need to stress about it. Rails defaults mirror the preferred approach of the Basecamp team, but that doesn't mean you have to agree or that it's the right way to do things for your application. You can use both, as Basecamp does, or choose one over the other.
 
-To help you decide, see the following guide
+To help you decide, see the following guide.
+
+## Highlights
+
+Both Sprockets and webpack will:
+
+- combine many source files into one or a few destination bundles for production
+- transpile source files from one syntax to another
+- minify and fingerprint assets when building for production
+- rebuild modified source files in development incrementally
+- do all of the above for both JavaScript and CSS
+
+What Sprockets does better than Webpacker:
+
+- Sprockets is written in Ruby and more-easily integrates with Rails
+- Rails asset gems typically don’t require any configuration and typically “just work”
+- jQuery - jQuery and its plugin ecosystem pre-dates modular JavaScript and tend to assume you’re in the global scope; this pair well with the way Sprockets works
+
+What Webpacker does better than Sprockets:
+
+- Take advantage of modern ES features through Babel and PostCSS
+- Integrate with next generations frontend frameworks like React, Vue, and Angular
+- Split your code into smaller, cacheable fragments, both statically and dynamically, to help developers minimize latency in end user download, parse, and execute times
+- There are a wide variety of configurable source map options
 
 ## Why Sprockets?
 
@@ -38,7 +62,7 @@ To help you decide, see the following guide
 - My Rails app does not need much JavaScript
 - I am a backend developer with limited knowledge of JavaScript ecosystem
 - I am not ready to invest time to understand webpack and Webpacker
-- I just don't like it: too complicated / too confusing / so much different than what I'm used to
+- I just don't like it: too complicated / too confusing / much different than what I'm used to
 
 ## Why use both?
 

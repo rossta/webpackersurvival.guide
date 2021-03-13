@@ -4,9 +4,9 @@ Sprockets and webpack are designed to solve the same general problem: bundle ass
 
 ## Tooling is different
 
-Sprockets is implemented in Ruby and deeply integrates with Rails, so it installs from Rubygems.org with bundler like most other open-source Ruby gems.
+Sprockets is implemented in Ruby and deeply integrates with Rails. It is installed from rubygems.org with bundler like most other open-source Ruby gems.
 
-webpack, on the other hand, is a JavaScript tool that runs on Node.js, which means, to use webpack with Rails, Node.js is a requirement along side Ruby.
+Webpack, on the other hand, is a JavaScript tool that runs on Node.js, which means, to use webpack with Rails, Node.js is a requirement along side Ruby.
 
 Node.js libraries are called packages and are distributed via the Node Package Manager, or NPM,. NPM for JavaScript is analogous to Rubygems for Ruby.
 
@@ -212,7 +212,7 @@ compile: false
 
 ## Writing your code will be different
 
-webpack is a module bundler. Practically speaking, this means every file in a webpack build is treated as a separate module (this is true for any other module builder, including Parcel, rollup, esbuild, etc.). This is not true of Sprockets.
+Webpack is a module bundler. Practically speaking, this means every file in a webpack build is treated as a separate module (this is true for any other module builder, including Parcel, rollup, esbuild, etc.). This is not true of Sprockets.
 
 Though most modern browsers support native modules, webpack creates a "module runtime" in your bundled code to emulate a native module system.
 
