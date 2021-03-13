@@ -3,9 +3,6 @@
   publish = "build/"
 
 [build.environment]
-  URL_WEB="https://rossta.net"
-  URL_TWITTER="https://twitter.com/rossta"
-  URL_GITHUB="https://github.com/rossta/webpackersurvival.guide"
   NODE_VERSION="14.15.4"
 
 [context.production.environment]
