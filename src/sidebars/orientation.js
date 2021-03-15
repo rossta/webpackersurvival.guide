@@ -8,5 +8,6 @@ module.exports = {
       label: 'Sprockets vs Webpacker',
       items: ['sprockets/index', 'sprockets/choosing', 'sprockets/comparison'],
     },
+    'alternatives',
   ],
 }
