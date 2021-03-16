@@ -63,7 +63,7 @@ To help you decide, see the following guide.
 **Cons**
 
 - ⛔️ My Rails app does not need much JavaScript
-- ⛔️ I don't want Node.js as a dependency
+- ⛔️ I don't want node.js as a dependency
 - ⛔️ I am a backend developer with limited knowledge of JavaScript ecosystem
 - ⛔️ I am not ready to invest time to understand webpack and Webpacker
 - ⛔️ Too complicated / too confusing / much different than what I'm used to

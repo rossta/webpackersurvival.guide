@@ -35,13 +35,13 @@ You could go one step further and implement your own Rails view helpers and comp
 
 ### Rollup
 
-[Rollup](https://rollupjs.org/guide/en/) is a Node.js tool that solves most of the same problems as webpack. Rollup's focus on ES modules allows it to be more streamlined and [some would argue](https://medium.com/@PepsRyuu/why-i-use-rollup-and-not-webpack-e3ab163f4fd3), a better developer experience. ["The same, but different"](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c) as Rollup author, Rich Harris, puts it.
+[Rollup](https://rollupjs.org/guide/en/) is a node.js tool that solves most of the same problems as webpack. Rollup's focus on ES modules allows it to be more streamlined and [some would argue](https://medium.com/@PepsRyuu/why-i-use-rollup-and-not-webpack-e3ab163f4fd3), a better developer experience. ["The same, but different"](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c) as Rollup author, Rich Harris, puts it.
 
 **Rails support** for standalone Rollup usage is unknown.
 
 ### Vite
 
-[Vite](https://vitejs.dev/) is a Node.js tool that provides a dev server which enhances [native ES modules](https://v8.dev/features/modules) (or ESM) with a "lightning fast" development experience and hot module reloading by using what is sometimes called the "no-bundler" approach. Vite delegates to Rollup to build production bundles.
+[Vite](https://vitejs.dev/) is a node.js tool that provides a dev server which enhances [native ES modules](https://v8.dev/features/modules) (or ESM) with a "lightning fast" development experience and hot module reloading by using what is sometimes called the "no-bundler" approach. Vite delegates to Rollup to build production bundles.
 
 **Rails support** is in development.
 
@@ -57,7 +57,7 @@ You could go one step further and implement your own Rails view helpers and comp
 
 ### Parcel
 
-[Parcel](https://parceljs.org/) is a Node.js-based asset bundler that requires zero configuration to bundle JavaScript, CSS, and other static assets. Compared to webpack, it boasts fewer dependencies and faster build times. It supports some webpack-comparable features like dynamic `import()` statements and hot module reloading, it does not attempt to solve all the problems webpack does.
+[Parcel](https://parceljs.org/) is a node.js-based asset bundler that requires zero configuration to bundle JavaScript, CSS, and other static assets. Compared to webpack, it boasts fewer dependencies and faster build times. It supports some webpack-comparable features like dynamic `import()` statements and hot module reloading, it does not attempt to solve all the problems webpack does.
 
 **Rails support** is in development.
 
