@@ -144,6 +144,7 @@ module.exports = {
       },
     ],
     '@docusaurus/theme-search-algolia',
+    '@docusaurus/theme-live-codeblock',
   ],
   plugins: [
     [
