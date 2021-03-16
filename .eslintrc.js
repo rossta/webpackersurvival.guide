@@ -3,6 +3,9 @@ module.exports = {
   env: {
     node: true,
   },
+  globals: {
+    window: 'readonly',
+  },
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
