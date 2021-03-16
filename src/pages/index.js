@@ -87,7 +87,7 @@ function Home() {
           <p className="hero__subtitle">
             Save time and frustration on the road to modernizing your Rails
             frontend with{' '}
-            <span class="text--primary text--bold">{siteConfig.title}</span>
+            <span className="text--primary text--bold">{siteConfig.title}</span>
           </p>
           <div className={clsx('margin-top--lg', styles.buttons)}>
             <Link

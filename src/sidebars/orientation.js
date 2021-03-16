@@ -9,5 +9,6 @@ module.exports = {
       items: ['sprockets/index', 'sprockets/choosing', 'sprockets/comparison'],
     },
     'alternatives',
+    'future',
   ],
 }
