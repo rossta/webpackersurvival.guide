@@ -1,5 +1,6 @@
 ---
 title: What are we even doing?
+description: A brief explanation Webpacker, the problem it solves, and how it is used in Rub on Rails
 ---
 
 ## WTF is Webpacker?
@@ -18,7 +19,7 @@ First, let's acknowledge: webpack is hard. It's OK to feel frustrated. It may he
 
 If you’re struggling to make Webpacker work, it could be a bug or because of a surprising Webpacker default. But, most likely it’s because you’re missing some knowledge about webpack, how it works, and what it’s trying to do.
 
-## What problem does webpack solve?
+## What problem does Webpacker solve?
 
 ### Bundling
 
