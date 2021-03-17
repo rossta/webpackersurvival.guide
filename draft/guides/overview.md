@@ -6,15 +6,15 @@ Sprockets and webpack are designed to solve the same general problem: bundle ass
 
 Sprockets is implemented in Ruby and deeply integrates with Rails. It is installed from rubygems.org with bundler like most other open-source Ruby gems.
 
-Webpack, on the other hand, is a JavaScript tool that runs on Node.js, which means, to use webpack with Rails, Node.js is a requirement along side Ruby.
+Webpack, on the other hand, is a JavaScript tool that runs on node.js, which means, to use webpack with Rails, node.js is a requirement along side Ruby.
 
-Node.js libraries are called packages and are distributed via the Node Package Manager, or NPM,. NPM for JavaScript is analogous to Rubygems for Ruby.
+node.js libraries are called packages and are distributed via the Node Package Manager, or NPM,. NPM for JavaScript is analogous to Rubygems for Ruby.
 
 Installing webpack from NPM is typically done with either the `npm` and `yarn` command line tools—two competing projects.
 
 | Task            | Sprockets    | webpack                   |
 | --------------- | ------------ | ------------------------- |
-| Runtime         | ruby         | Node.js                   |
+| Runtime         | ruby         | node.js                   |
 | Distributed via | Rubygems.org | Node Package Manger (NPM) |
 | Installed with  | bundler      | `yarn` or `npm`           |
 
@@ -153,7 +153,7 @@ Execute `bin/webpack` binstub to compile Rails Webpacker assets into the `public
 $ bin/webpack
 ```
 
-This binstub is a Ruby wrapper script that shells out to the `webpack` executable which itself will run in a Node.js process. Why not call `webpack` directly? Well the Ruby portion of the script loads the `config/webpacker.yml` file and selected ENV vars, determines which `webpack` config to use, and provides some caching logic to help skip successive builds. The Rails server will run this executable when the `compile` option is set to true in `config/webpacker.yml`:
+This binstub is a Ruby wrapper script that shells out to the `webpack` executable which itself will run in a node.js process. Why not call `webpack` directly? Well the Ruby portion of the script loads the `config/webpacker.yml` file and selected ENV vars, determines which `webpack` config to use, and provides some caching logic to help skip successive builds. The Rails server will run this executable when the `compile` option is set to true in `config/webpacker.yml`:
 
 ```yaml
 compile: true
@@ -172,7 +172,7 @@ public/
       application-1234..def.js
 ```
 
-The `bin/webpack-dev-server` binstub is also a Ruby wrapper script for compiling Webpacker assets. It spins up a separate Node.js web server called the webpack-dev-server which builds assets in memory. In development, the rails server will detect when the webpack-dev-server is running and proxy Webpacker asset requests via Webpacker middleware. The [webpack-dev-server has many configuration options](TODO), including the ability to "live-reload" the browser when assets change or even to reload individual modules on the fly without refreshing the page, a technique known as [hot-module-reloading](TODO).
+The `bin/webpack-dev-server` binstub is also a Ruby wrapper script for compiling Webpacker assets. It spins up a separate node.js web server called the webpack-dev-server which builds assets in memory. In development, the rails server will detect when the webpack-dev-server is running and proxy Webpacker asset requests via Webpacker middleware. The [webpack-dev-server has many configuration options](TODO), including the ability to "live-reload" the browser when assets change or even to reload individual modules on the fly without refreshing the page, a technique known as [hot-module-reloading](TODO).
 
 Since using the webpack-dev-server alongside the rails server requires multiple processes, it's common to use a process manager to make it easier to start and stop both servers with a single command. With a tools like [foreman](TODO) or [overmind](TODO), you might use a Procfile file like the following.
 

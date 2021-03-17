@@ -2,61 +2,59 @@
 title: Side-by-side comparison
 ---
 
+import TabItem from '@theme/TabItem'
+
+import SprocketsVsWebpackerTabs from '../../../src/components/SprocketsVsWebpackerTabs'
+
 In this section, we'll compare how you get things done in Sprockets and Webpacker, side-by-side.
 
 ### Importing JavaScript
 
-import SprocketsVsWebpackerTabs from '../../../src/components/SprocketsVsWebpackerTabs'
-import TabItem from '@theme/TabItem'
-
 Importing will include a file in the output bundle in which it is referenced.
 
 <SprocketsVsWebpackerTabs>
-<TabItem value="webpacker">
+  <TabItem value="webpacker">
 
-In Webpacker, files are included in a bundle with "imports". An import expression can produce local reference(s) to the file's exports.
+  In Webpacker, files are included in a bundle with "imports". An import expression can produce local reference(s) to the file's exports.
 
-```js title="app/packs/javascript/another-module.js"
-export default class AnotherModule {}
-```
+  ```js title="app/packs/javascript/another-module.js"
+  export default class AnotherModule {}
+  ```
 
-```js title="app/packs/javascript/some-file.js"
-import AnotherModule from './another-module'
+  ```js title="app/packs/javascript/some-file.js"
+  import AnotherModule from './another-module'
 
-const other = new AnotherModule()
-```
+  const other = new AnotherModule()
+  ```
 
-An import is local to the file where it is used. To use it in different files, you'd need to repeat the import expression.
+  An import is local to the file where it is used. To use it in different files, you'd need to repeat the import expression.
 
-```js title="app/packs/javascript/a-second-file.js"
-import AnotherModule from './another-module'
+  ```js title="app/packs/javascript/a-second-file.js"
+  import AnotherModule from './another-module'
 
-const other = new AnotherModule()
-```
+  const other = new AnotherModule()
+  ```
 
-#### Resources
+  For more info, see [Importing and Exporting in Detail - Exploring ES6](https://exploringjs.com/es6/ch_modules.html#sec_importing-exporting-details)
 
-- [Importing and Exporting in Detail, Exploring ES6](https://exploringjs.com/es6/ch_modules.html#sec_importing-exporting-details)
+  </TabItem>
+  <TabItem value="sprockets">
 
-</TabItem>
+  Sprockets requires relies on special comment-based syntax which must rely solely on side-effects. Any references would need to be accessed through global scope.
 
-<TabItem value="sprockets">
+  ```js title="app/assets/javascripts/some-file.js"
+  //= require ./another-file
 
-Sprockets requires relies on special comment-based syntax which must rely solely on side-effects. Any references would need to be accessed through global scope.
+  var other = new window.AnotherFile()
+  ```
 
-```js title="app/assets/javascripts/some-file.js"
-//= require ./another-file
+  This also means you'd only require the file once for use anywhere in a given bundle and require statements are order-dependent.
 
-var other = new window.AnotherFile()
-```
+  ```js title="app/assets/javascripts/some-file-required-later.js"
+  var other = new window.AnotherFile()
+  ```
 
-This also means you'd only require the file once for use anywhere in a given bundle and require statements are order-dependent.
-
-```js title="app/assets/javascripts/some-file-required-later.js"
-var other = new window.AnotherFile()
-```
-
-</TabItem>
+  </TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Importing third-party JavaScript

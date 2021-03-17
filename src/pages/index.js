@@ -24,9 +24,9 @@ const getFeatures = () => [
         <Link to={useBaseUrl('orientation/')}>
           The missing introduction to Webpacker
         </Link>
-        . Understand what Webpacker does (and doesn't) do. Crafted especially
-        for developers familiar with the Rails asset pipeline. used to get your
-        website up and running quickly.
+        . Understand what Webpacker does (and doesn&apos;t) do. Crafted
+        especially for developers familiar with the Rails asset pipeline. used
+        to get your website up and running quickly.
       </>
     ),
   },
@@ -78,8 +78,8 @@ function Home() {
           <h1
             className={clsx('hero__title margin-bottom--lg', styles.heroTitle)}
           >
-            "Adopting Webpacker is one of the hardest things I've ever done in
-            Rails"
+            &ldqou;Adopting Webpacker is one of the hardest things I&apos;ve
+            ever done in Rails&rdqou;
           </h1>
           <h4 className={styles.workInProgress}>
             <AlertTriangle /> Work in Progress!
@@ -87,7 +87,7 @@ function Home() {
           <p className="hero__subtitle">
             Save time and frustration on the road to modernizing your Rails
             frontend with{' '}
-            <span class="text--primary text--bold">{siteConfig.title}</span>
+            <span className="text--primary text--bold">{siteConfig.title}</span>
           </p>
           <div className={clsx('margin-top--lg', styles.buttons)}>
             <Link

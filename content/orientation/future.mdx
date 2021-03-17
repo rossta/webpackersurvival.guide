@@ -1,0 +1,35 @@
+---
+title: The Future of Rails and asset bundling
+sidebar_label: The Future
+description: Webpacker will not completely replace the Rails asset pipeline, both Webpacker and the Rails asset pipeline will continue to have official support in Rails for the near future, and—possibly—the Rails asset pipeline may find new momentum when combined with native ES module support.
+---
+
+import TwitterWidget from '../../src/components/TwitterWidget'
+
+<TwitterWidget />
+
+Nothing is certain, but there have a number of recent developments that give hints to the near future of asset bundling in Rails.
+
+Given adoption of HTTP/2 multiplexing and native ES module support in modern browsers, DHH recently tweeted of a future without complex bundlers and additional tools.
+
+<blockquote className="twitter-tweet">
+  <p lang="en" dir="ltr">
+    Who knew that the asset pipeline in Rails would see a Renaissance due to
+    browsers finally catching up to the progress made in ES6. With importmaps
+    (still shimmed, soon not), all we need is fingerprinting and cache headers
+    to dance 💃🏼.
+  </p>
+  &mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/1334430053850099714?ref_src=twsrc%5Etfw">December 3, 2020</a>
+</blockquote>
+
+<blockquote className="twitter-tweet">
+  <p lang="en" dir="ltr">
+    Also, shout out to Skypack. Whether you want to use them as a CDN is one
+    thing (although love all the tricks they give you for free!), but their ESM
+    conversion of all of NPM is 👏
+    <a href="https://t.co/YKt9agVHmR">https://t.co/YKt9agVHmR</a>
+  </p>
+  &mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/1334469304750903296?ref_src=twsrc%5Etfw">December 3, 2020</a>
+</blockquote>
+
+The signs indicate Webpacker will not completely replace the Rails asset pipeline, both Webpacker and the Rails asset pipeline will continue to have official support in Rails for the near future, and—possibly—the Rails asset pipeline may find new momentum when combined with native ES module support.

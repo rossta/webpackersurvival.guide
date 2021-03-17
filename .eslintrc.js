@@ -3,6 +3,9 @@ module.exports = {
   env: {
     node: true,
   },
+  globals: {
+    window: 'readonly',
+  },
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
@@ -11,12 +14,15 @@ module.exports = {
   ],
   parserOptions: {
     parser: 'babel-eslint',
+    ecmaVersion: 6,
+    sourceType: 'module',
   },
   plugins: ['prettier'],
   rules: {
-    'prettier/prettier': ['error'],
+    'prettier/prettier': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'react/prop-types': 'off',
   },
   settings: {
     react: {

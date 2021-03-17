@@ -10,5 +10,5 @@
 
 ## Gotchas
 
-* Packs are only for entry points
-* Overpacking
+- Packs are only for entry points
+- Overpacking
