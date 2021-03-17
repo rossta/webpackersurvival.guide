@@ -7,4 +7,66 @@ If you've used Rails for long enough, it would be reasonable to expect adopting 
 
 Since that time, the popularity of JavaScript exploded, arguably fueled by node.js, which made it easier to run JavaScript on a server. node.js introduced many JavaScript developers to the concept of "modules", namely [CommonJS](http://www.commonjs.org/).
 
-TODO: expand on history up to present day
+## CommonJS modules
+
+You may be familiar with CommonJS-style modules in which files define references to export with statements like `module.exports = {...}` and import dependences from other files with statements like `const webpack = require('webpack')`.
+
+```js
+const $ = require('jquery')
+const _ = require('lodash')
+
+function myFunction() {}
+
+module.exports = myFunction;
+```
+
+## AMD
+
+Another specification, known as Asynchronous Module Definition, or AMD, was created to allow modules to be resolved asynchronously. This approach was aimed at browser environments which must deal with latency as resources are downloaded from remote servers. AMD modules might look like the following example:
+
+```js
+define(['jquery', 'lodash'] , function ($, _) {
+  function myFunction() {}
+
+  return myFunction;
+});
+```
+
+## UMD
+
+JavaScript library authors now will often publish packages in a wrapped distribution that is compatible with CommonJS, AMD, or no module specification at all. This is known as the Universal Module Definition (UMD). The wrapper is typically an Immediately-Invoked Function Expression (IIFE) that might look like the example below:
+
+```js
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+
+    // AMD
+    define(['jquery', 'lodash'], factory);
+  } else if (typeof exports === 'object') {
+
+    // Node, CommonJS-like
+    module.exports = factory(require('jquery'), require('lodash'));
+  } else {
+
+    // Browser globals (root is window)
+    root.myFunc = factory(root.jQuery, root._);
+  }
+}(this, function ($, _) {
+  // methods
+  function myFunction() {}
+
+  // export
+  return myFunction;
+}));
+```
+
+## ES Modules
+
+
+
+### Resources
+
+* [JavaScript modules - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+* [Why AMD? - requirejs.org](https://requirejs.org/docs/whyamd.html)
+* [CommonJS Notes - requirejs.org](https://requirejs.org/docs/commonjs.html)
+* [Understanding (all) JavaScript module formats and tools - Dixon's Blog](https://weblogs.asp.net/dixin/understanding-all-javascript-module-formats-and-tools#umd-module-universal-module-definition-or-umdjs-module)
