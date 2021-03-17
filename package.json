@@ -10,7 +10,7 @@
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "lint": "eslint . --cache --ext .js,.mdx,.jsx"
+    "lint": "eslint . --cache --ext .js,.mdx,.jsx,.md"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.72",

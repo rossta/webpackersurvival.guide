@@ -20,12 +20,12 @@ The installer also generates environment-specific JavaScript files in `config/we
 
 ```sh
 config
-│   ...
+│
 ├── webpack
-│   ├── development.js
-│   ├── environment.js
-│   ├── production.js
-│   └── test.js
+│   ├── development.js
+│   ├── environment.js
+│   ├── production.js
+│   └── test.js
 └── webpacker.yml
 ```
 

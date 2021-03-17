@@ -17,7 +17,7 @@ const _ = require('lodash')
 
 function myFunction() {}
 
-module.exports = myFunction;
+module.exports = myFunction
 ```
 
 ## AMD
@@ -25,11 +25,11 @@ module.exports = myFunction;
 Another specification, known as Asynchronous Module Definition, or AMD, was created to allow modules to be resolved asynchronously. This approach was aimed at browser environments which must deal with latency as resources are downloaded from remote servers. AMD modules might look like the following example:
 
 ```js
-define(['jquery', 'lodash'] , function ($, _) {
+define(['jquery', 'lodash'], function ($, _) {
   function myFunction() {}
 
-  return myFunction;
-});
+  return myFunction
+})
 ```
 
 ## UMD
@@ -37,27 +37,24 @@ define(['jquery', 'lodash'] , function ($, _) {
 JavaScript library authors now will often publish packages in a wrapped distribution that is compatible with CommonJS, AMD, or no module specification at all. This is known as the Universal Module Definition (UMD). The wrapper is typically an Immediately-Invoked Function Expression (IIFE) that might look like the example below:
 
 ```js
-(function (root, factory) {
+;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-
     // AMD
-    define(['jquery', 'lodash'], factory);
+    define(['jquery', 'lodash'], factory)
   } else if (typeof exports === 'object') {
-
     // Node, CommonJS-like
-    module.exports = factory(require('jquery'), require('lodash'));
+    module.exports = factory(require('jquery'), require('lodash'))
   } else {
-
     // Browser globals (root is window)
-    root.myFunc = factory(root.jQuery, root._);
+    root.myFunc = factory(root.jQuery, root._)
   }
-}(this, function ($, _) {
+})(this, function ($, _) {
   // methods
   function myFunction() {}
 
   // export
-  return myFunction;
-}));
+  return myFunction
+})
 ```
 
 ## ES Modules
@@ -71,14 +68,16 @@ TODO
 :::note
 TODO
 :::
+
 ## Rails Today
 
 :::note
 TODO
 :::
+
 ### Resources
 
-* [JavaScript modules - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
-* [Why AMD? - requirejs.org](https://requirejs.org/docs/whyamd.html)
-* [CommonJS Notes - requirejs.org](https://requirejs.org/docs/commonjs.html)
-* [Understanding (all) JavaScript module formats and tools - Dixon's Blog](https://weblogs.asp.net/dixin/understanding-all-javascript-module-formats-and-tools#umd-module-universal-module-definition-or-umdjs-module)
+- [JavaScript modules - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- [Why AMD? - requirejs.org](https://requirejs.org/docs/whyamd.html)
+- [CommonJS Notes - requirejs.org](https://requirejs.org/docs/commonjs.html)
+- [Understanding (all) JavaScript module formats and tools - Dixon's Blog](https://weblogs.asp.net/dixin/understanding-all-javascript-module-formats-and-tools#umd-module-universal-module-definition-or-umdjs-module)
