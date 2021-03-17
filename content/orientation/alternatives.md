@@ -8,7 +8,7 @@ Though Webpacker is the default JavaScript compiler for Rails, there are alterna
 
 ## Sprockets
 
-Sprockets is also officially supported in the Rails ecosystem and still works for many teams for its relative simplicity. See our article on [choosing between Webpacker and Sprockets](/orientation/sprockets/chooosing) for more details on why you might consider using Webpacker, Sprockets, or both in your Rails app.
+Sprockets is also officially supported in the Rails ecosystem and still works for many teams for its relative simplicity. See our article on [choosing between Webpacker and Sprockets](./sprockets/chooosing.md) for more details on why you might consider using Webpacker, Sprockets, or both in your Rails app.
 
 ## Rails and webpack without Webpacker
 
