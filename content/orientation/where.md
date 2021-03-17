@@ -62,8 +62,20 @@ JavaScript library authors now will often publish packages in a wrapped distribu
 
 ## ES Modules
 
+:::note
+TODO
+:::
 
+## Asset Bundlers
 
+:::note
+TODO
+:::
+## Rails Today
+
+:::note
+TODO
+:::
 ### Resources
 
 * [JavaScript modules - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
