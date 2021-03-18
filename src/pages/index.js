@@ -78,8 +78,8 @@ function Home() {
           <h1
             className={clsx('hero__title margin-bottom--lg', styles.heroTitle)}
           >
-            &ldqou;Adopting Webpacker is one of the hardest things I&apos;ve
-            ever done in Rails&rdqou;
+            &rsquo;Adopting Webpacker is one of the hardest things I&apos;ve
+            ever done in Rails&lsquo;
           </h1>
           <h4 className={styles.workInProgress}>
             <AlertTriangle /> Work in Progress!
