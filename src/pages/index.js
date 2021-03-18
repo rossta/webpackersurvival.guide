@@ -85,8 +85,8 @@ function Home() {
             <AlertTriangle /> Work in Progress!
           </h4>
           <p className="hero__subtitle">
-            Save time and frustration on the road to modernizing your Rails
-            frontend with{' '}
+            Save yourself time and frustration. Modernize your Rails frontend
+            with{' '}
             <span className="text--primary text--bold">{siteConfig.title}</span>
           </p>
           <div className={clsx('margin-top--lg', styles.buttons)}>
