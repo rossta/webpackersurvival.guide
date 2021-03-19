@@ -15,44 +15,44 @@ Importing will include a file in the output bundle in which it is referenced.
 <SprocketsVsWebpackerTabs>
   <TabItem value="webpacker">
 
-  In Webpacker, files are included in a bundle with "imports". An import expression can produce local reference(s) to the file's exports.
+In Webpacker, files are included in a bundle with "imports". An import expression can produce local reference(s) to the file's exports.
 
-  ```js title="app/packs/javascript/another-module.js"
-  export default class AnotherModule {}
-  ```
+```js title="app/packs/javascript/another-module.js"
+export default class AnotherModule {}
+```
 
-  ```js title="app/packs/javascript/some-file.js"
-  import AnotherModule from './another-module'
+```js title="app/packs/javascript/some-file.js"
+import AnotherModule from './another-module'
 
-  const other = new AnotherModule()
-  ```
+const other = new AnotherModule()
+```
 
-  An import is local to the file where it is used. To use it in different files, you'd need to repeat the import expression.
+An import is local to the file where it is used. To use it in different files, you'd need to repeat the import expression.
 
-  ```js title="app/packs/javascript/a-second-file.js"
-  import AnotherModule from './another-module'
+```js title="app/packs/javascript/a-second-file.js"
+import AnotherModule from './another-module'
 
-  const other = new AnotherModule()
-  ```
+const other = new AnotherModule()
+```
 
-  For more info, see [Importing and Exporting in Detail - Exploring ES6](https://exploringjs.com/es6/ch_modules.html#sec_importing-exporting-details)
+For more info, see [Importing and Exporting in Detail - Exploring ES6](https://exploringjs.com/es6/ch_modules.html#sec_importing-exporting-details)
 
   </TabItem>
   <TabItem value="sprockets">
 
-  Sprockets requires relies on special comment-based syntax which must rely solely on side-effects. Any references would need to be accessed through global scope.
+Sprockets requires relies on special comment-based syntax which must rely solely on side-effects. Any references would need to be accessed through global scope.
 
-  ```js title="app/assets/javascripts/some-file.js"
-  //= require ./another-file
+```js title="app/assets/javascripts/some-file.js"
+//= require ./another-file
 
-  var other = new window.AnotherFile()
-  ```
+var other = new window.AnotherFile()
+```
 
-  This also means you'd only require the file once for use anywhere in a given bundle and require statements are order-dependent.
+This also means you'd only require the file once for use anywhere in a given bundle and require statements are order-dependent.
 
-  ```js title="app/assets/javascripts/some-file-required-later.js"
-  var other = new window.AnotherFile()
-  ```
+```js title="app/assets/javascripts/some-file-required-later.js"
+var other = new window.AnotherFile()
+```
 
   </TabItem>
 </SprocketsVsWebpackerTabs>
@@ -170,9 +170,48 @@ app
 
 ### Importing multiple files at once
 
+Here's a great example the highlights the differences between Webpacker and Sprockets. In Webpacker, the strategy is a bit more complex and explicit while the Sprockets approach is simpler and "just works."
+
 <SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets">TODO: Add content</TabItem>
-  <TabItem value="webpacker">TODO: Add content</TabItem>
+  <TabItem value="webpacker">
+    To import multiple files at once, webpack provides the `require.context` function. Think of "context" as a directory.
+
+    ```js
+    /* require.context(
+      directory,
+      (useSubdirectories = true),
+      (regExp = /^\.\/.*$/),
+      (mode = 'sync')
+    ); */
+    require.context(./components, true, /\.js$/)
+    ```
+    Additional boilerplate is needed to access imports from `require.context`:
+    ```js
+    const modules = {};
+
+    function importAll(r) {
+      r.keys().forEach((key) => (modules[key] = r(key)));
+    }
+
+    importAll(require.context('../components/', true, /\.js$/));
+
+    // modules['post_component'], etc.
+    ```
+
+    :::note
+    TODO - Link to future require.context recipes
+    :::
+
+    See the webpack docs for more about the [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) API.
+
+  </TabItem>
+  <TabItem value="sprockets">
+    The `require_tree` directive makes it easy to require all the files in the given directory.
+    ```js
+    //= require_tree ./components
+    //= require_tree ./admin
+    ```
+  </TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Importing CSS
@@ -245,13 +284,13 @@ app
 │       └── welcome.scss
 ```
 
-Sprockets 3
+#### Sprockets 3
 
 ```rb file="config/initializers/assets.rb"
 Rails.assets.precompile += ['welcome.scss']
 ```
 
-Sprockets 4
+#### Sprockets 4
 
 ```js file="config/assets/manifest.js"
 // JS and CSS bundles
@@ -280,29 +319,6 @@ Images need to be processed to be referenced in Rails view templates (ERB, HAML,
 
 <SprocketsVsWebpackerTabs>
 
-<TabItem value="sprockets">
-
-1.  Place images in `app/assets/images` directory
-
-```sh
-app/assets
-└── images
-    ├── backpack.jpg
-    ├── travel
-        └── fannypack.jpg
-```
-
-2.  Use `image_tag` helper in view
-
-```erb
-<%= image_tag 'backpack.jpg' %>
-```
-
-```erb
-<%= image_tag 'travel/backpack.jpg' %>
-```
-
-</TabItem>
 <TabItem value="webpacker">
 
 1.  Place images in a directory of your choice. Webpacker does not automatically process images unless you manually import them.
@@ -335,6 +351,29 @@ See [requiring multiple files](/) to import many images
 
 </TabItem>
 
+<TabItem value="sprockets">
+
+1.  Place images in `app/assets/images` directory
+
+```sh
+app/assets
+└── images
+    ├── backpack.jpg
+    ├── travel
+        └── fannypack.jpg
+```
+
+2.  Use `image_tag` helper in view
+
+```erb
+<%= image_tag 'backpack.jpg' %>
+```
+
+```erb
+<%= image_tag 'travel/backpack.jpg' %>
+```
+
+</TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Adding bundles
