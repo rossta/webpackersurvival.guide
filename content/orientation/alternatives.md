@@ -37,13 +37,15 @@ You could go one step further and implement your own Rails view helpers and comp
 
 [Rollup](https://rollupjs.org/guide/en/) is a node.js tool that solves most of the same problems as webpack. Rollup's focus on ES modules allows it to be more streamlined and [some would argue](https://medium.com/@PepsRyuu/why-i-use-rollup-and-not-webpack-e3ab163f4fd3), a better developer experience. ["The same, but different"](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c) as Rollup author, Rich Harris, puts it.
 
-**Rails support** for standalone Rollup usage is unknown.
+**Rails support**
+
+TBD
 
 ### Vite
 
 [Vite](https://vitejs.dev/) is a node.js tool that provides a dev server which enhances [native ES modules](https://v8.dev/features/modules) (or ESM) with a "lightning fast" development experience and hot module reloading by using what is sometimes called the "no-bundler" approach. Vite delegates to Rollup to build production bundles.
 
-**Rails support** is in development.
+**Rails support**
 
 - [vite_ruby](https://github.com/ElMassimo/vite_ruby) is a recent project that creates Ruby bindings for Vite and is compatible with Rails apps.
 
@@ -51,7 +53,7 @@ You could go one step further and implement your own Rails view helpers and comp
 
 [Snowpack](https://www.snowpack.dev/) is another "no-bundler" tool that advertises a "lightning fast" experience. Similar to [Vite](#vite), Snowpack works through native ES modules and supports similar features. One reason Snowpack and Vite can claim faster build times than webpack is because of their focus and slimmer feature set.
 
-**Rails support** is in development.
+**Rails support**
 
 - [Snowpacker](https://github.com/ParamagicDev/snowpacker) provides Rails integration for Snowpack. Similar to Webpacker, it is both a gem and an npm package.
 
@@ -59,7 +61,7 @@ You could go one step further and implement your own Rails view helpers and comp
 
 [Parcel](https://parceljs.org/) is a node.js-based asset bundler that requires zero configuration to bundle JavaScript, CSS, and other static assets. Compared to webpack, it boasts fewer dependencies and faster build times. It supports some webpack-comparable features like dynamic `import()` statements and hot module reloading, it does not attempt to solve all the problems webpack does.
 
-**Rails support** is in development.
+**Rails support**
 
 - [parcel-rails](https://github.com/michaldarda/parcel-rails) is a gem to integrate Rails with Parcel.
 
@@ -67,7 +69,9 @@ You could go one step further and implement your own Rails view helpers and comp
 
 Relatively new, [esbuild](https://esbuild.github.io/) is a bundler and minifier primarily focused on speed. Its homepage boast results that puts it several orders of magnitude of other popular bundlers. Though esbuild is distributed as an npm package while its core is written in Go and compiled down to a native binary. Still early in development as of Spring 2021, the effort appears promising.
 
-**Rails support** as a bunder is unknown. It is possible to use esbuild as a minifier with Webpacker/webpack through the [esbuild-webpack-plugin](https://github.com/sorrycc/esbuild-webpack-plugin).
+**Rails support**
+
+It is possible to use esbuild as a minifier with Webpacker/webpack through the [esbuild-webpack-plugin](https://github.com/sorrycc/esbuild-webpack-plugin).
 
 ### Skypack
 
@@ -82,7 +86,9 @@ document.getElementById('#confetti').addEventListener('click', () => {
 })
 ```
 
-**Rails support** isn't strictly necessary—you can start referencing Skypack modules in `<script type="module">` tags.
+**Rails support**
+
+Explicity support isn't strictly necessary—you can start by referencing Skypack modules in `<script type="module">` tags.
 
 Examples
 
