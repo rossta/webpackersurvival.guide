@@ -10,10 +10,10 @@ In this section, we'll compare how you get things done in Sprockets and Webpacke
 
 ### Importing JavaScript
 
-Importing will include a file in the output bundle in which it is referenced.
+Different expressions are used in Webpacker and Sprockets to include another JavaScript file in the resulting asset bundle
 
 <SprocketsVsWebpackerTabs>
-  <TabItem value="webpacker">
+<TabItem value="webpacker">
 
 In Webpacker, files are included in a bundle with "imports". An import expression can produce local reference(s) to the file's exports.
 
@@ -37,8 +37,8 @@ const other = new AnotherModule()
 
 For more info, see [Importing and Exporting in Detail - Exploring ES6](https://exploringjs.com/es6/ch_modules.html#sec_importing-exporting-details)
 
-  </TabItem>
-  <TabItem value="sprockets">
+</TabItem>
+<TabItem value="sprockets">
 
 Sprockets requires relies on special comment-based syntax which must rely solely on side-effects. Any references would need to be accessed through global scope.
 
@@ -54,10 +54,12 @@ This also means you'd only require the file once for use anywhere in a given bun
 var other = new window.AnotherFile()
 ```
 
-  </TabItem>
+</TabItem>
 </SprocketsVsWebpackerTabs>
 
 ### Importing third-party JavaScript
+
+Third-party JavaScript is packaged, distributed, and installed differently depending on which Rails asset bundler you're using.
 
 <SprocketsVsWebpackerTabs>
 <TabItem value="webpacker">
@@ -125,9 +127,13 @@ _.pick(object, ['a', 'c'])
 
 ### Rendering scripts
 
+Rails provides view helpers to render script tags containing the path or URL to bundled assets using the assets' canonical names.
+
 <SprocketsVsWebpackerTabs>
 
 <TabItem value="webpacker">
+
+In Webpacker, use `javascript_pack_tag`. Only the files located in the `app/packs/entrypoints` directory are available as bundled assets.
 
 ```bash
 app
@@ -137,16 +143,27 @@ app
 │   │   └── components
 │   │       └── Button.js
 │   └── entrypoints
-│       ├── application.js
+│       └── application.js
 ```
+
+In your layout:
 
 ```erb
 <%= javascript_pack_tag 'application' %>
 ```
 
+When Webpacker is configured to optimize the output into "split chunks" ( default in Webpacker 6), you'll likely see multiple files output as a result:
+
+```html
+<script src="/packs/js/runtime-abc...123.js">
+<script src="/packs/js/application-abc...123.js">
+```
+
 </TabItem>
 
 <TabItem value="sprockets">
+
+In Sprockets, use `javascript_include_tag`.
 
 ```bash
 app
@@ -160,8 +177,16 @@ app
 │       └── application.css
 ```
 
+In your layout:
+
 ```erb
 <%= javascript_include_tag 'application' %>
+```
+
+Depending on your Sprockets configuration, you'll either see each bundled file output separately or resulting combine bundle with a fingerprinted asset path:
+
+```html
+<script src="/packs/js/application-abc...123.js">
 ```
 
 </TabItem>
@@ -170,64 +195,78 @@ app
 
 ### Importing multiple files at once
 
-Here's a great example the highlights the differences between Webpacker and Sprockets. In Webpacker, the strategy is a bit more complex and explicit while the Sprockets approach is simpler and "just works."
-
-<SprocketsVsWebpackerTabs>
-  <TabItem value="webpacker">
-    To import multiple files at once, webpack provides the `require.context` function. Think of "context" as a directory.
-
-    ```js
-    /* require.context(
-      directory,
-      (useSubdirectories = true),
-      (regExp = /^\.\/.*$/),
-      (mode = 'sync')
-    ); */
-    require.context(./components, true, /\.js$/)
-    ```
-    Additional boilerplate is needed to access imports from `require.context`:
-    ```js
-    const modules = {};
-
-    function importAll(r) {
-      r.keys().forEach((key) => (modules[key] = r(key)));
-    }
-
-    importAll(require.context('../components/', true, /\.js$/));
-
-    // modules['post_component'], etc.
-    ```
-
-    :::note
-    TODO - Link to future require.context recipes
-    :::
-
-    See the webpack docs for more about the [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) API.
-
-  </TabItem>
-  <TabItem value="sprockets">
-    The `require_tree` directive makes it easy to require all the files in the given directory.
-    ```js
-    //= require_tree ./components
-    //= require_tree ./admin
-    ```
-  </TabItem>
-</SprocketsVsWebpackerTabs>
-
-### Importing CSS
+It's occasionally preferable to bundle many files using a single expression. In Webpacker, the strategy is more explicit and offers fine-grained control while the Sprockets approach is simpler and "just works."
 
 <SprocketsVsWebpackerTabs>
 <TabItem value="webpacker">
 
-Webpacker will process CSS if you have [the prerequisites installed](/). TODO: Link
+To import multiple files at once, webpack provides the `require.context` function. Think of "context" as a directory.
+
+```js
+/* require.context(
+  directory,
+  (useSubdirectories = true),
+  (regExp = /^\.\/.*$/),
+  (mode = 'sync')
+); */
+require.context('./components', true, /\.js$/)
+```
+
+Additional boilerplate is needed to access imports from `require.context`:
+
+```js
+const modules = {}
+
+function importAll(r) {
+  r.keys().forEach((key) => (modules[key] = r(key)))
+}
+
+importAll(require.context('../components/', true, /\.js$/))
+
+// modules['post_component'], etc.
+```
+
+:::note
+TODO - Link to future require.context recipes
+:::
+
+See the webpack docs for more about the [`require.context`](https://webpack.js.org/guides/dependency-management/#requirecontext) API.
+
+</TabItem>
+<TabItem value="sprockets">
+
+The `require_tree` directive makes it easy to require all the files in the given directory.
+
+```js
+//= require_tree ./components
+//= require_tree ./admin
+```
+
+</TabItem>
+</SprocketsVsWebpackerTabs>
+
+### Importing CSS
+
+Both Webpacker and Sprockets can import and CSS into stylesheet bundles.
+
+<SprocketsVsWebpackerTabs>
+<TabItem value="webpacker">
+
+When using SASS/SCSS, additional SASS/SCSS files can be included using `@import` expressions.
 
 ```css
 @import './welcome.scss';
 ```
 
+Since webpack treats everything as a module, you can (surprisingly) import CSS from JavaScript files. Webpacker is typically configured to "extract" this CSS into the resulting stylesheet bundle.
+
 ```js title="app/packs/javascript/anyfile.js"
 import './stylesheets/welcome.scss'
 ```
+
+:::note
+As of Webpacker 6, CSS is not processed by default, but Webpacker will be configured for CSS processing automatically once you have [additional prerequisites](/). TODO: Link
+:::
 
 </TabItem>
 <TabItem value="sprockets">
