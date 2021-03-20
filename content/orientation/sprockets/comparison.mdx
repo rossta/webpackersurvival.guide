@@ -418,17 +418,54 @@ app/assets
 ### Adding bundles
 
 <SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets">TODO: Add content</TabItem>
-  <TabItem value="webpacker">TODO: Add content</TabItem>
+
+Both Webpacker and Sprockets use the top-level file, or entrypoint, to a bundle as the canonical identifier.
+
+  <TabItem value="webpacker">
+
+Webpacker automatically determines what files are entrypoints from directory structure.
+
+Any file in the `app/packs/entrypoints` directory in Webpacker 6 (or in `app/javascript/packs` for Webpacker 5 and below) is treated as a separate entrypoint. Webpacker will recognize a JavaScript and CSS file of the same canonical name as part of the same bundle. So in the example directory structure below, Webpacker will find two entrypoints, `application` and `welcome`.
+
+```bash
+app
+├── packs
+│   ├── stylesheets
+│   │   └── button.scss
+│   └── entrypoints
+│       ├── application.js
+│       └── application.scss
+│       └── welcome.scss
+```
+
+::: warning
+It is very important that only entrypoint files are placed in this directory. [A common Webpacker mistake is to place too many (or even all) JavaScript source files](https://rossta.net/blog/overpacking-a-common-webpacker-mistake.html).
+:::
+
+  </TabItem>
+  <TabItem value="sprockets">
+
+#### Sprockets 3
+
+Prior to Sprockets 4, specifying bundle entrypoints other than `application.js` and `application.css` involves setting the `assets.precompile` array in the Rails configuration
+
+```rb file="config/initializers/assets.rb"
+Rails.application.assets.precompile += ['welcome.js']
+```
+
+#### Sprockets 4
+
+Sprockets 4 changed to the JavaScript manifest file. The following configuration would mean any file in the top-level `app/assets/javascripts` and `app/assets/stylesheets` directories would be precompiled as bundle entrypoints.
+
+```js file="config/assets/manifest.js"
+// JS and CSS bundles
+//
+//= link_directory ../javascripts .js
+//= link_directory ../stylesheets .css
+```
+
+  </TabItem>
 </SprocketsVsWebpackerTabs>
-
-Sprockets 3:
-
-Rails.application.assets.precompile += []
-
-Sprockets 4:
-Precompile config
-manifest
 
 Webpacker 5
 
