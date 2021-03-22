@@ -473,16 +473,20 @@ In some cases, you want to access just the path to an asset.
 
 <SprocketsVsWebpackerTabs>
   <TabItem value="webpacker">
-```erb file="app/views/posts/index.html.erb"
+
+```erb
 <%= asset_pack_path 'application.js' %>
 <%= asset_pack_url 'application.js' %>
 ```
+
   </TabItem>
   <TabItem value="sprockets">
-```erb file="app/views/posts/index.html.erb"
+
+```erb
 <%= asset_path 'application.js' %>
 <%= asset_url 'application.js' %>
 ```
+
   </TabItem>
 </SprocketsVsWebpackerTabs>
 
