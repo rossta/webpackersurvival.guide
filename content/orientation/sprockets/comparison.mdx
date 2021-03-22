@@ -421,7 +421,7 @@ app/assets
 
 Both Webpacker and Sprockets use the top-level file, or entrypoint, to a bundle as the canonical identifier.
 
-  <TabItem value="webpacker">
+<TabItem value="webpacker">
 
 Webpacker automatically determines what files are entrypoints from directory structure.
 
@@ -442,8 +442,8 @@ app
 It is very important that only entrypoint files are placed in this directory. [A common Webpacker mistake is to place too many (or even all) JavaScript source files](https://rossta.net/blog/overpacking-a-common-webpacker-mistake.html).
 :::
 
-  </TabItem>
-  <TabItem value="sprockets">
+</TabItem>
+<TabItem value="sprockets">
 
 #### Sprockets 3
 
@@ -464,48 +464,98 @@ Sprockets 4 changed to the JavaScript manifest file. The following configuration
 //= link_directory ../stylesheets .css
 ```
 
-  </TabItem>
+</TabItem>
 </SprocketsVsWebpackerTabs>
 
-Webpacker 5
+## Rendering asset path or URL
 
-Add additional entrypoint files.
-
-## Rendering path to asset
+In some cases, you want to access just the path to an asset.
 
 <SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets">TODO: Add content</TabItem>
-  <TabItem value="webpacker">TODO: Add content</TabItem>
+  <TabItem value="webpacker">
+```erb file="app/views/posts/index.html.erb"
+<%= asset_pack_path 'application.js' %>
+<%= asset_pack_url 'application.js' %>
+```
+  </TabItem>
+  <TabItem value="sprockets">
+```erb file="app/views/posts/index.html.erb"
+<%= asset_path 'application.js' %>
+<%= asset_url 'application.js' %>
+```
+  </TabItem>
 </SprocketsVsWebpackerTabs>
-
-asset_path
-asset_url
-
-asset_pack_path
-asset_pack_url
 
 ## Rendering favicon
 
 <SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets">TODO: Add content</TabItem>
-  <TabItem value="webpacker">TODO: Add content</TabItem>
+  <TabItem value="webpacker">
+```bash
+app
+├── packs
+│   ├── images
+│   │   └── favicon.png
+│   └── entrypoints
+│       └── application.js
+```
+
+```js file="app/packs/entrypoints/application.js"
+// import the favicon png explicitly
+import '../images/favicon.png'
+// OR
+// require all files in the images directory
+require.context('../images', true)
+```
+
+```erb
+<%= favicon_pack_tag 'favicon.png' %>
+```
+
+  </TabItem>
+  <TabItem value="sprockets">
+```bash
+app
+├── assets
+│   ├── images
+│   │   └── favicon.png
+```
+<%= favicon_link_tag 'favicon.png' %>
+  </TabItem>
 </SprocketsVsWebpackerTabs>
-
-favicon_link_tag
-
-favicon_pack_tag
 
 ## Running precompilation
 
+Assets can be compiled for production with tasks shown below.
+
 <SprocketsVsWebpackerTabs>
-  <TabItem value="sprockets">TODO: Add content</TabItem>
-  <TabItem value="webpacker">TODO: Add content</TabItem>
+  <TabItem value="webpacker">
+
+The following commands will run both Sprockets and Webpacker compilation if both are installed.
+
+```
+rails assets:precompile
+```
+
+The following command will run just Webpacker compilation.
+
+```
+rails webpacker:precompile
+```
+
+Webpacker will also compile with the Webpacker binstub.
+
+```
+bin/webpack
+```
+
+  </TabItem>
+  <TabItem value="sprockets">
+
+The following command will run asset pipeline compilation.
+
+```
+rails assets:precompile
+```
+
+  </TabItem>
 </SprocketsVsWebpackerTabs>
-
-Sprockets
-rails assets:precompile
-
-Webpacker
-rails assets:precompile
-or, rails webpacker:precompile
-or, bin/webpack
