@@ -12,5 +12,6 @@ module.exports = {
     },
     'alternatives',
     'future',
+    'survival',
   ],
 }
