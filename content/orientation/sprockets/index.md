@@ -40,7 +40,7 @@ import myImageUrl from '../images/my-image.jpg'
 Importing CSS and images in JavaScript isn't for everyone.
 
 :::note
-Since Webpacker 5, importing CSS from a JavaScript file is no longer required. The more recent versions of Webpacker allow developers to create CSS entrypoints similarly to how you would in Sprockets.
+Since Webpacker 5, importing CSS from a JavaScript file is no longer required. The more recent versions of Webpacker allow developers to create CSS entry points similarly to how you would in Sprockets.
 :::
 
 Resources

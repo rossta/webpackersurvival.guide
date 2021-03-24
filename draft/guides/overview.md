@@ -164,7 +164,7 @@ The output of the Webpacker build will emit files in the `public/packs/` directo
 ```sh
 app/
   frontend/
-    packs/            # entrypoints
+    packs/            # entryp oints
       application.js
 public/
   packs/              # output
