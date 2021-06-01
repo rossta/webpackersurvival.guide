@@ -1,6 +1,6 @@
 ---
 title: Choosing between Webpacker and Sprockets
-sidebar_label: Choosing
+sidebar_label: Pros and Cons
 ---
 
 The good news is there's no need to stress about it. Rails defaults mirror the preferred approach of the Basecamp team, but that doesn't mean you have to agree or that it's the right way to do things for your application. You can use both, as Basecamp does, or choose one over the other.

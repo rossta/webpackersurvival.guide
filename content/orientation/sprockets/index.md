@@ -7,7 +7,7 @@ Sprockets is written in Ruby and, at this point, primarily exists to serve Rails
 
 Webpacker also primarily exists to serve Rails applications. Though part of it is written in Ruby, its primary core—the part that produces asset is [webpack](https://webpack.js.org), a command line tool written in JavaScript that runs on node.js. It is packaged as node.js module and distributed via the [npm registry](https://www.npmjs.com).
 
-## Why does Rails 6include both?
+## Why does Rails 6 include both?
 
 In Rails 6, Webpacker is the default JavaScript compiler while Sprockets is set up to compile CSS. This is true even though Webpacker is capable of compiling CSS and Sprockets is capable of compiling JavaScript.
 
@@ -40,7 +40,7 @@ import myImageUrl from '../images/my-image.jpg'
 Importing CSS and images in JavaScript isn't for everyone.
 
 :::note
-Since Webpacker 5, importing CSS from a JavaScript file is no longer required. The more recent versions of Webpacker allow developers to create CSS entrypoints similarly to how you would in Sprockets.
+Since Webpacker 5, importing CSS from a JavaScript file is no longer required. The more recent versions of Webpacker allow developers to create CSS entry points similarly to how you would in Sprockets.
 :::
 
 Resources

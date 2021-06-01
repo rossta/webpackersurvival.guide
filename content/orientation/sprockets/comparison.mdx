@@ -1,5 +1,5 @@
 ---
-title: Side-by-side comparison
+title: Usage comparison
 ---
 
 import TabItem from '@theme/TabItem'
@@ -423,9 +423,9 @@ Both Webpacker and Sprockets use the top-level file, or entrypoint, to a bundle 
 
 <TabItem value="webpacker">
 
-Webpacker automatically determines what files are entrypoints from directory structure.
+Webpacker automatically determines what files are entry points from directory structure.
 
-Any file in the `app/packs/entrypoints` directory in Webpacker 6 (or in `app/javascript/packs` for Webpacker 5 and below) is treated as a separate entrypoint. Webpacker will recognize a JavaScript and CSS file of the same canonical name as part of the same bundle. So in the example directory structure below, Webpacker will find two entrypoints, `application` and `welcome`.
+Any file in the `app/packs/entrypoints` directory in Webpacker 6 (or in `app/javascript/packs` for Webpacker 5 and below) is treated as a separate entrypoint. Webpacker will recognize a JavaScript and CSS file of the same canonical name as part of the same bundle. So in the example directory structure below, Webpacker will find two entry points, `application` and `welcome`.
 
 ```bash
 app
@@ -449,7 +449,7 @@ It is very important that only entrypoint files are placed in this directory. [A
 
 #### Sprockets 3
 
-Prior to Sprockets 4, specifying bundle entrypoints other than `application.js` and `application.css` involves setting the `assets.precompile` array in the Rails configuration
+Prior to Sprockets 4, specifying bundle entry points other than `application.js` and `application.css` involves setting the `assets.precompile` array in the Rails configuration
 
 ```rb file="config/initializers/assets.rb"
 Rails.application.assets.precompile += ['welcome.js']
@@ -457,7 +457,7 @@ Rails.application.assets.precompile += ['welcome.js']
 
 #### Sprockets 4
 
-Sprockets 4 changed to the JavaScript manifest file. The following configuration would mean any file in the top-level `app/assets/javascripts` and `app/assets/stylesheets` directories would be precompiled as bundle entrypoints.
+Sprockets 4 changed to the JavaScript manifest file. The following configuration would mean any file in the top-level `app/assets/javascripts` and `app/assets/stylesheets` directories would be precompiled as bundle entry points.
 
 ```js file="config/assets/manifest.js"
 // JS and CSS bundles
